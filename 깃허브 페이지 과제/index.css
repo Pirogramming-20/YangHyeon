@@ -1,5 +1,5 @@
 body {
-  font-size: 24px;
+  font-size: 10px;
 }
 
 #wrap {
@@ -10,14 +10,19 @@ body {
 
 /*header*/
 .header {
-  background-color: #2b3137;
   height: 1100px;
+
+  background-image: url(https://github.githubassets.com/images/modules/site/heroes/simple-codelines.svg);
+  background-position-x: center;
+  background-position-y: 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #2b3137;
 }
 
 /*----- header top------*/
 #header-top {
   display: flex;
-  background-color: #2b3137;
   height: 105px;
   justify-content: space-between;
   align-items: center;
@@ -49,13 +54,13 @@ body {
 
 #left-menu li a .move-to-other,
 #left-menu li a .addition {
-  font-size: 1.4rem;
-  color: #fafafa;
+  font-size: 1.6rem;
+  color: white;
   text-decoration: none;
 }
 
 #left-menu li a .addition {
-  margin-right: 20px;
+  margin-right: 25px;
   padding-right: 15px;
 }
 
@@ -66,7 +71,7 @@ body {
 
 #left-menu li:nth-of-type(2) a span {
   display: inline-block;
-  width: 140px;
+  width: 155px;
 }
 
 #left-menu li .plus {
@@ -187,9 +192,12 @@ body {
 }
 
 #header-body-left .bold {
-  font-size: 6.7rem;
-  color: #fbfbfb;
+  color: white;
   letter-spacing: -2px;
+
+  font-size: 6.4rem;
+  font-weight: 500;
+  line-height: 1;
 
   margin: 10px 10px 13px;
   padding: 0px 30px 15px 0px;
@@ -241,6 +249,9 @@ body {
 }
 
 #header-body-right .input > div {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark-blue);
   margin-bottom: 15px;
   width: 640px;
   height: 30px;
@@ -292,7 +303,7 @@ body {
 #header-body-right div:nth-of-type(4) span .blue-highlight a,
 #header-body-right div:nth-of-type(6) span .blue-highlight a {
   text-decoration: none;
-  color: #0969da;
+  color: #0366d6;
 }
 
 #submit-signup {
