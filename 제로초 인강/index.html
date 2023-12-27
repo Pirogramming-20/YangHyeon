@@ -1031,9 +1031,28 @@
           #main-shopping-grid {
             margin-top: 18px;
             display: grid;
-            grid-template-rows: 90px 95px 185px;
+            grid-template-rows: 90px 95px 170px;
             grid-template-columns: 1fr 1fr 1fr 1fr 250px;
             column-gap: 20px;
+          }
+
+          #main-shopping-grid .item .image {
+            border-radius: 4px;
+            width: 115px;
+            height: 115px;
+            margin-bottom: 8px;
+
+            background-color: gray;
+          }
+
+          #main-shopping-grid .item .text {
+            text-align: left;
+          }
+
+          #main-shopping-grid .item {
+            font-size: 1.3rem;
+            line-height: 19px;
+            letter-spacing: -0.4px;
           }
 
           .item:nth-child(1),
@@ -1043,6 +1062,21 @@
             grid-row: 1 / span 2;
           }
 
+          .item:nth-child(5),
+          .item:nth-child(6),
+          .item:nth-child(11) > div:first-child {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            background: rgba(245, 248, 251, 0.6);
+          }
+          .item:nth-child(6) {
+            margin: 12px 0px;
+          }
+
+          .item:nth-child(11) > div:first-child {
+            margin-bottom: 8px;
+            height: 146px;
+          }
           aside[id$="ad"] {
             box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, 0.04);
             background-color: gray;
@@ -1050,7 +1084,7 @@
           }
           section[id^="main"] {
             box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 16px;
           }
         </style>
@@ -1153,17 +1187,45 @@
                   </div>
                 </div>
                 <div id="main-shopping-grid">
-                  <div class="item">1</div>
-                  <div class="item">2</div>
-                  <div class="item">3</div>
-                  <div class="item">4</div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
                   <div class="item">5</div>
                   <div class="item">6</div>
-                  <div class="item">7</div>
-                  <div class="item">8</div>
-                  <div class="item">9</div>
-                  <div class="item">10</div>
-                  <div class="item">11</div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div class="image"></div>
+                    <div class="text">X-mas특가100원 3+1구매1개백원</div>
+                  </div>
+                  <div class="item">
+                    <div></div>
+                    <div></div>
+                    에너지 채우는 정관장 홍삼정 특가!
+                  </div>
                 </div>
               </div>
               <footer>
