@@ -31,7 +31,7 @@ body {
 
 #left-menu {
   width: 200px;
-  margin-left: 40px;
+  margin-left: 50px;
   padding-left: 210px;
 
   display: flex;
@@ -60,8 +60,7 @@ body {
 }
 
 #left-menu li a .move-to-other {
-  margin-right: 5px;
-  margin-left: 13px;
+  margin-left: 17px;
   padding-right: 25px;
 }
 
@@ -85,7 +84,7 @@ body {
   width: 55px;
   height: 55px;
 
-  margin-right: 50px;
+  margin-right: 40px;
 
   filter: invert(100%);
 }
@@ -114,11 +113,11 @@ body {
   position: relative;
   width: 350px;
   height: 50px;
-  margin: 31px 5px 0px;
+  margin: 31px 0px 0px;
 }
 
 #search-box > span {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: lightgray;
   font-weight: bold;
 
@@ -131,8 +130,13 @@ body {
 }
 
 #search-box > svg {
-  width: 5px;
-  height: 5px;
+  position: absolute;
+  top: 20px;
+  right: -16px;
+  transform: scale(1.4);
+
+  width: 50px;
+  height: 50px;
 
   fill: black;
 }
@@ -141,7 +145,7 @@ body {
   border: none;
 
   background-color: transparent;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: white;
 
   width: 100px;
@@ -155,7 +159,7 @@ body {
   border-radius: 8px;
 
   background-color: transparent;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: white;
 
   width: 100px;
@@ -260,6 +264,10 @@ body {
 
   top: 17px;
   left: 8px;
+}
+
+#header-body-right div:nth-of-type(3) .type > span {
+  margin-left: 70px;
 }
 
 #header-body-right .input .type .password {
