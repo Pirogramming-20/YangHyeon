@@ -181,7 +181,7 @@
       }
 
       #search > form {
-        display: inline-block;
+        display: inline-flex;
         width: 708px;
         height: 60px;
         border: 1px solid #03c75a;
@@ -202,7 +202,8 @@
         font-weight: bold;
       }
       #search-svg {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         width: 67px;
         height: 58px;
         padding: 17px 16px 17px 27px;
@@ -215,9 +216,19 @@
       }
 
       #search-right {
-        display: inline-block;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: strech;
       }
 
+      #search-keyboard,
+      #search-recent,
+      #search-button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
       #search-keyboard::before {
         content: "";
         display: block;
