@@ -32,3 +32,4 @@
 [3-5] 뉴스 스탠드 text overflow 사용, position relative와 top , vertical align :top을 을 이용하여 위치 조정
 [3-6] 뉴스스탠드 마무리
 [3-7] 쇼핑 영역 뉴스스탠드 참조 구현 틀잡기
+[3-8] 그리드 활용하여 쇼핑 영억 공간 잡기
