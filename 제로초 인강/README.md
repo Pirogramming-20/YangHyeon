@@ -30,3 +30,4 @@
 [3-3] 뉴스스탠드 기본 작업
 [3-4] 그리드 사용하여 뉴스스탠드 작업
 [3-5] 뉴스 스탠드 text overflow 사용, position relative와 top , vertical align :top을 을 이용하여 위치 조정
+[3-6] 뉴스스탠드 마무리
