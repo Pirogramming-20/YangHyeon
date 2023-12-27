@@ -679,7 +679,44 @@
             flex: 1;
             padding: 18px 20px;
           }
+          #main-newstand-top .dot::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 9px 7px 0;
+            border-radius: 50%;
+            vertical-align: top;
+          }
+          #main-newstand-top .dot::before:hover {
+            text-decoration: underline;
+          }
 
+          #main-newstand-top .dot,
+          #main-newstand-top .slash {
+            color: rgba(8, 8, 8, 0.5);
+            font-weight: 800;
+          }
+          #main-newstand-top .slash {
+            position: relative;
+            padding-left: 26px;
+          }
+          #main-newstand-top .slash::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 4px;
+            left: 13px;
+            width: 1px;
+            height: 15px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            -webkit-transform: skewX(-15deg);
+            -ms-transform: skewX(-15deg);
+            transform: skewX(-15deg);
+          }
           #main-newstand-gray {
             display: flex;
             justify-content: flex-start;
@@ -687,6 +724,66 @@
             padding: 12px 20px;
             background-color: var(--color_option_bg);
             border-radius: 4px;
+            font-size: 1.4rem;
+            line-height: 26px;
+          }
+
+          #main-newstand-gray .left {
+            display: flex;
+            flex: 1;
+          }
+
+          #main-newstand-gray .left > a:first-of-type::after {
+            content: "";
+            background-image: url(./sp_main.png);
+            background-size: 433px 412px;
+            background-position: -154px -201px;
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 6px;
+            display: inline-block;
+            margin: 10px 0 0 5px;
+            vertical-align: top;
+          }
+
+          #main-newstand-animation {
+            padding: 25px;
+            position: relative;
+            top: -25px;
+          }
+          #main-newstand-animation::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 32px;
+            left: 12px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            width: 1px;
+            height: 12px;
+          }
+
+          #main-newstand-animation > a:first-of-type {
+            vertical-align: top;
+          }
+          #main-newstand-animation > a:first-of-type::after {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            background-color: #d3d5d7;
+            background-color: var(--color_dot_divider);
+            margin: 12px 6px 0 6px;
+            border-radius: 50%;
+            vertical-align: top;
+          }
+
+          #main-newstand-animation a:last-of-type {
+            text-overflow: ellipsis;
+            width: 418px;
+            white-space: nowrap;
+            display: inline-block;
+            overflow: hidden;
           }
 
           #main-newstand-grid {
@@ -762,22 +859,25 @@
                 <div id="main-newstand-top">
                   <header>
                     <a href="#" class="bold">뉴스스탠드</a>
-                    <a href="#">언론사편집</a>
-                    <a href="#">엔터</a>
-                    <a href="#">스포츠</a>
-                    <a href="#">경제</a>
+                    <a href="#" class="dot">언론사편집</a>
+                    <a href="#" class="slash">엔터</a>
+                    <a href="#" class="slash">스포츠</a>
+                    <a href="#" class="slash">경제</a>
                   </header>
                   <div id="main-newstand-gray">
-                    <div>
-                      <a href="#">분야별 뉴스</a>
-                      <a href="#">연합뉴스</a>
-                      <a href="#"
-                        >과제양이 너무 많아 과제양이 너무 많아 과제양이 너무
-                        많아 과제양이 너무 많아 과제양이 너무 많아 과제양이 너무
-                        많아 과제양이 너무 많아
-                      </a>
+                    <div class="left">
+                      <a href="#">전체언론사</a>
+                      <div id="main-newstand-animation">
+                        <a href="#">연합뉴스</a>
+                        <a href="#"
+                          >과제양이 너무 많아 과제양이 너무 많아 과제양이 너무
+                          많아 과제양이 너무 많아 과제양이 너무 많아 과제양이
+                          너무 많아 과제양이 너무 많아
+                        </a>
+                      </div>
                     </div>
-                    <div>
+                    <div class="right">
+                      <a href="#">뉴스스탠드</a>
                       <a href="#">뉴스홈</a>
                     </div>
                   </div>
