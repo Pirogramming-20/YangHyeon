@@ -14,5 +14,11 @@
 4. 검색창의 네이버 기호의 margin 과 padding
 5. 검색 button 의 이미지가 svg로 변경되었음
 
+현재의 NAVER와 맞지 않으나 강의 내용을 따라간 부분
+
+1. search-keyboard, search-recent의 버튼 위치
+2. 검색창의 focus 시 생기는 작은 세로바
+
 [2-2] flex
 [2-3] 검색창, 검색창 버튼 작업
+[2-4] 검색창 focus 작업
