@@ -13,7 +13,7 @@
 3. 검색창의 위치가 상이
 4. 검색창의 네이버 기호의 margin 과 padding
 5. 검색 button 의 이미지가 svg로 변경되었음
-6. 로그인 버튼 마진
+6. 로그인 버튼 margin
 
 현재의 NAVER와 맞지 않으나 강의 내용을 따라간 부분
 
@@ -31,3 +31,4 @@
 [3-4] 그리드 사용하여 뉴스스탠드 작업
 [3-5] 뉴스 스탠드 text overflow 사용, position relative와 top , vertical align :top을 을 이용하여 위치 조정
 [3-6] 뉴스스탠드 마무리
+[3-7] 쇼핑 영역 뉴스스탠드 참조 구현 틀잡기
