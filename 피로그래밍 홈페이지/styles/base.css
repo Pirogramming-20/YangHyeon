@@ -43,8 +43,18 @@ body {
   /* line-height: 1; */
   font-family: "Nexon", sans-serif;
 }
+
 .page {
+  display: flex;
+  flex-flow: column;
   width: min(100%, 1200px);
   padding: 0 40px;
   margin: auto;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 770px) {
+  .page {
+    padding: 0 16px;
+  }
 }

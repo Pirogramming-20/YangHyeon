@@ -4,7 +4,7 @@ header > h1 {
 
 header {
   height: var(--header-height);
-
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,6 @@ header {
     rgba(0, 0, 0, 0.8) 70%,
     rgba(0, 0, 0, 0) 100%
   );
-  z-index: 1000;
 }
 
 .header-menu {
@@ -53,5 +52,11 @@ header {
   #home-logo {
     width: 30px;
     height: 30px;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .header-menu {
+    align-self: flex-end;
   }
 }

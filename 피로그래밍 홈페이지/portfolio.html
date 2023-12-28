@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
     <link rel="stylesheet" href="styles/hamburger-button.css" />
     <link rel="stylesheet" href="styles/portfolio.css" />
   </head>
@@ -28,27 +29,28 @@
           <li><a href="">Gallery</a></li>
           <li><a href="">Recruit</a></li>
         </ul>
+        <div id="hamburger">
+          <label for="sidepop" id="hamburger-icon">
+            <input type="checkbox" id="sidepop" />
+            <div class="hamburger-button"></div>
+            <div class="hamburger-button"></div>
+            <div class="hamburger-button"></div>
+          </label>
+          <aside class="sidebar" id="sidebar">
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Portfolio</a></li>
+              <li><a href="">Interview</a></li>
+              <li><a href="">Gallery</a></li>
+              <li><a href="">Recruit</a></li>
+            </ul>
+          </aside>
+        </div>
       </header>
-      <label id="hamburger-icon">
-        <input type="checkbox" />
-        <div></div>
-        <div></div>
-        <div></div>
-      </label>
-      <aside class="sidebar">
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">About us</a></li>
-          <li><a href="">Portfolio</a></li>
-          <li><a href="">Interview</a></li>
-          <li><a href="">Gallery</a></li>
-          <li><a href="">Recruit</a></li>
-        </ul>
-      </aside>
       <main>
-        <nav></nav>
+        <header id="main-header"></header>
         <section></section>
-        <aside></aside>
       </main>
       <footer>
         <div class="footer-top"></div>
