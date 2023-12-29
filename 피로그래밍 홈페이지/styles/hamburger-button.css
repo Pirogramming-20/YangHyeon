@@ -1,12 +1,8 @@
-#hamburger {
-  transition: 0.3s;
-  justify-content: center;
-}
-
 #hamburger-icon {
   display: none;
   flex-direction: column;
   width: 3rem;
+  transition: 0.3s;
 }
 
 #hamburger-icon div {
@@ -35,10 +31,6 @@
 #hamburger-icon > input:checked ~ div:nth-of-type(3) {
   transform: rotate(45deg) translate(0px, -11px);
   transform-origin: top;
-}
-
-#hamburger-icon:has(input:checked) {
-  display: none;
 }
 
 @media screen and (max-width: 800px) {

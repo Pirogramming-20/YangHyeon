@@ -21,7 +21,7 @@
   font-size: var(--subheading);
 }
 
-#hamburger-icon:has(input:checked) ~ aside {
+header:has(#hamburger-icon:has(input:checked)) ~ aside {
   transform: translate(-250px);
 }
 

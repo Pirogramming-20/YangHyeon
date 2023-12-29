@@ -1,0 +1,109 @@
+#main-header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16px;
+}
+
+#main-header .space {
+  width: 0px;
+}
+
+#main-header .current-number {
+  font-size: var(--heading3);
+}
+
+#main-header > a > div {
+  content: "\ea6e";
+}
+
+#main-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-section .box {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--bg-gray);
+  gap: var(--gutter);
+  padding: var(--gutter);
+  margin-bottom: var(--gutter);
+
+  position: relative;
+
+  display: flex;
+}
+
+#main-section .box img {
+  width: 150px;
+  height: 110px;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-section .box > div {
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#main-section .box > div div:nth-of-type(1) {
+  font-size: var(--heading3);
+  font-weight: 900;
+}
+
+#main-section .box > div div:nth-of-type(2) {
+  padding: 3px 0px;
+  color: #c6c6c6;
+  font-size: inherit;
+}
+
+#main-section .box .project-more {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#main-section .box .project-more div {
+  height: 3px;
+  background-color: var(--white);
+  margin: 3px 0;
+}
+
+#main-section .team-member {
+  padding: 0px;
+}
+
+#main-section .team-member ul {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#main-section .team-member ul li {
+  background-color: var(--bg-5);
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: var(--body2);
+  color: black;
+}
+
+#main-section .team-member ul li:first-of-type {
+  background-color: var(--blue);
+  color: white;
+}
+
+#main-header {
+  width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+}
