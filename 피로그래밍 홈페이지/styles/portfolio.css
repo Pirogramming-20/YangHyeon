@@ -37,7 +37,7 @@
   display: flex;
 }
 
-#main-section .box img {
+#main-section .box nav {
   width: 150px;
   height: 110px;
   background-color: white;
@@ -48,6 +48,12 @@
   align-items: center;
 }
 
+#main-section .box > nav img {
+  width: 100%;
+  transition: 0.3s;
+  padding: 1rem 2rem;
+}
+
 #main-section .box > div {
   padding: 5px 0px;
   display: flex;
@@ -55,27 +61,32 @@
   justify-content: space-between;
 }
 
-#main-section .box > div div:nth-of-type(1) {
+#main-section .box > div:first-of-type div:nth-of-type(1) {
   font-size: var(--heading3);
   font-weight: 900;
 }
 
-#main-section .box > div div:nth-of-type(2) {
+#main-section .box > div:first-of-type div:nth-of-type(2) {
   padding: 3px 0px;
   color: #c6c6c6;
   font-size: inherit;
 }
 
-#main-section .box .project-more {
+#main-section .box #project-more {
+  width: 20px;
+  height: 20px;
+  right: var(--gutter);
+  top: var(--gutter);
   position: absolute;
+  padding: 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
-#main-section .box .project-more div {
-  height: 3px;
-  background-color: var(--white);
-  margin: 3px 0;
+#main-section .box #project-more div {
+  height: 2px;
+  background-color: var(--bg-5);
+  transition: 0.3s;
 }
 
 #main-section .team-member {
@@ -105,5 +116,60 @@
   width: 100%;
 }
 
+#main-section .box:hover {
+  transform: translateY(-2px);
+}
+
+#main-section .box:hover > nav img {
+  padding: 1px 15px;
+}
+
+#main-section .box:hover #project-more div:nth-of-type(1) {
+  transform: scaleX(50%) translateX(-40%);
+}
+
+#main-section .box:hover #project-more div:nth-of-type(3) {
+  transform: scaleX(50%) translateX(40%);
+}
+
 @media screen and (max-width: 650px) {
+  #main-section .box {
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--bg-gray);
+    gap: var(--gutter);
+    padding: 40px 16px 16px;
+    margin: 0 0 16px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #main-section .box > div:first-of-type {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #main-section .box > div:first-of-type div:nth-of-type(1) {
+    font-size: var(--heading3);
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  #main-section .box nav {
+    width: min(75%, 250px);
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #main-section .team-member ul {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    justify-content: center;
+  }
 }
