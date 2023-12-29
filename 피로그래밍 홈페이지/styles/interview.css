@@ -1,0 +1,119 @@
+.header-menu > li:nth-of-type(4) a {
+  color: var(--green-1);
+}
+
+#main-section {
+  width: 100%;
+  display: grid;
+  grid-gap: var(--gutter);
+  margin-bottom: var(--offset);
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#main-section .box {
+  padding: 16px;
+  background-color: var(--bg-gray);
+  border-radius: 10px;
+  padding: var(--gutter);
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#main-section .box-top {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--gutter);
+}
+
+#main-section .box-top > div {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#main-section .box-top > div > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+#main-section .box-top aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: var(--subheading);
+}
+
+#main-section .box-top aside div:last-of-type {
+  padding: 6px 8px;
+  font-size: var(--body2);
+  border-radius: 5px;
+  color: var(--white);
+}
+
+#non-major-icon {
+  background: var(--red);
+}
+#major-icon {
+  background: var(--blue);
+}
+#double-major-icon {
+  background: var(--badge-green);
+}
+
+#main-section .box-bottom {
+  padding-top: 16px;
+  font-size: var(--body1);
+}
+
+#main-section .box #introduce-more {
+  width: 20px;
+  height: 20px;
+  right: var(--gutter);
+  top: var(--gutter);
+  position: absolute;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#main-section .box #introduce-more div {
+  height: 2px;
+  background-color: var(--bg-5);
+  transition: 0.3s;
+}
+
+#main-section .box:hover #introduce-more div:nth-of-type(1) {
+  transform: scaleX(50%) translateX(-40%);
+}
+
+#main-section .box:hover #introduce-more div:nth-of-type(3) {
+  transform: scaleX(50%) translateX(40%);
+}
+
+#main-section .box:hover {
+  transform: translateY(-2px);
+}
+
+#main-section .box:hover > div img {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 850px) {
+  #main-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #main-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

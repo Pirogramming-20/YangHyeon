@@ -8,20 +8,417 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/footer.css" />
-    <link rel="stylesheet" href="styles/portfolio.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="styles/hamburger-button.css" />
+    <link rel="stylesheet" href="styles/interview.css" />
   </head>
   <body>
-    <header>
-      <h1>
-        피로그래밍
-        <a href=""><img src="./images/logo.svg" alt="logo" /></a>
-      </h1>
-    </header>
-    <main>
-      <nav></nav>
-      <section></section>
-      <aside></aside>
-    </main>
-    <footer></footer>
+    <section class="page">
+      <header class="top-header">
+        <h1>
+          피로그래밍
+          <a href="#"
+            ><img id="home-logo" src="./images/logo.svg" alt="logo"
+          /></a>
+        </h1>
+        <ul class="header-menu">
+          <li><a href="">Home</a></li>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Portfolio</a></li>
+          <li><a href="">Interview</a></li>
+          <li><a href="">Gallery</a></li>
+          <li><a href="">Recruit</a></li>
+        </ul>
+        <label for="sidepop" id="hamburger-icon">
+          <input type="checkbox" id="sidepop" />
+          <div class="hamburger-button"></div>
+          <div class="hamburger-button"></div>
+          <div class="hamburger-button"></div>
+        </label>
+        <aside class="sidebar" id="sidebar">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Portfolio</a></li>
+            <li><a href="">Interview</a></li>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">Recruit</a></li>
+          </ul>
+        </aside>
+      </header>
+      <main>
+        <header id="main-header">
+          <div class="space"></div>
+          <div class="current-number">19기</div>
+          <a href="#">
+            <span>18기 ></span>
+            <div class="next-icon"></div>
+          </a>
+        </header>
+        <section id="main-section">
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">곽민경</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>수고했다.. 더 수고해보자</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">김선우</div>
+                        <div id="double-major-icon">복수전공</div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>Taskstock 공식 치어리더</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">김정곤</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>매일매일 코딩으로 느끼는 즐거움</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">김현수</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>피로피로~</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">노영진</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>zep에 있어야 능률이 오르는 편입니다~</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">박석류</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>경제를 싫어하는 경제학도</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">백서경</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>뚝딱뚝딱 하나씩</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">백승민</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>할 수 있다ㅏㅏㅏ</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">안정근</div>
+                        <div id="major-icon">전공자</div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>정근님 이 기능 가능하시죠? 네.. 가능..합..니다..</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">양원채</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>어무해</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">오경린</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>피로한 코린이</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">왕한솔</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>DailyVS 지박령입니다.</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">장민서</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>재밌당</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">장준석</div>
+                        <div id="double-major-icon"> 복수전공 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>(대충 멋있는 말)</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">정혜인</div>
+                        <div id="major-icon"> 전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>매 순간 성장하는 사람이 되자</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">정환희</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>TaskStock 폼 미쳤다</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-content">
+                <div class="box-top">
+                    <div class="box-top-content">
+                        <img src="./images/profile.jpg"></img>
+                    </div>
+                    <aside class="box-top-aside">
+                        <div class="hname">조성민</div>
+                        <div id="non-major-icon"> 비전공자 </div>
+                    </aside>
+                </div>
+                <div class="box-bottom">
+                    <p>PM / 창업 유망</p>
+                </div>
+            </div>
+            <div id="introduce-more">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+    <footer>
+      <div class="footer-top"></div>
+      <div class="footer-bottom"></div>
+    </footer>
   </body>
 </html>
