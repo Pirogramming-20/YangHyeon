@@ -48,7 +48,8 @@ body {
 }
 
 .logo:hover,
-.btn:hover {
+.btn:hover,
+.color-btn:hover {
   transform: scale(1.1);
 }
 
@@ -81,7 +82,7 @@ body {
   justify-content: center;
 }
 
-.header-middle {
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
