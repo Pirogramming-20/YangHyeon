@@ -8,5 +8,87 @@
     <link rel="stylesheet" href="./style.css" />
     <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="main">
+      <div class="header">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="16"
+          width="14"
+          viewBox="0 0 448 512"
+        >
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            d="M176 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h16V98.4C92.3 113.8 16 200 16 304c0 114.9 93.1 208 208 208s208-93.1 208-208c0-41.8-12.3-80.7-33.5-113.2l24.1-24.1c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L355.7 143c-28.1-23-62.2-38.8-99.7-44.6V64h16c17.7 0 32-14.3 32-32s-14.3-32-32-32H224 176zm72 192V320c0 13.3-10.7 24-24 24s-24-10.7-24-24V192c0-13.3 10.7-24 24-24s24 10.7 24 24z"
+          />
+        </svg>
+        <h1>피로그래밍 스톱워치</h1>
+      </div>
+
+      <div class="stopwatch">
+        <div id="time-display"></div>
+        <div id="button-area">
+          <div id="start-btn" class="control-btn">start</div>
+          <div id="stop-btn" class="control-btn">stop</div>
+          <div id="reset-btn" class="control-btn">reset</div>
+        </div>
+      </div>
+
+      <div class="time-record">
+        <div class="record-top">
+          <div id="checkAll-btn" class="check-btn record-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="14"
+              viewBox="0 0 448 512"
+              class=""
+            >
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+          </div>
+          <span>구간 기록</span>
+          <div id="delete-btn" class="delete-btn record-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="14"
+              viewBox="0 0 448 512"
+            >
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+              />
+            </svg>
+          </div>
+        </div>
+        <ul id="record-list">
+          <li>
+            <div class="check-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="16"
+                width="14"
+                viewBox="0 0 448 512"
+                class=""
+              >
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                />
+              </svg>
+            </div>
+            <div id="time">
+              <span>01</span>
+              :
+              <span>71</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
