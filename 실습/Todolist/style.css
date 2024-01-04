@@ -155,7 +155,7 @@ body {
 }
 
 #listContainer > li {
-  margin: 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -175,11 +175,19 @@ body {
   fill: var(--color-green);
 }
 
+#listContainer > li.checked::before {
+  content: "";
+  background-image: url(./images/images/todo_icon_fill.svg);
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+}
+
 #taskInput {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--color-dark-grey);
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   outline: 0;
 }
 
