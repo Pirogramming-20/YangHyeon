@@ -29,3 +29,160 @@
   font-family: "Pretendard-Regular";
   color: white;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: black;
+  width: 375px;
+  height: 100vh;
+
+  padding: 20px 25px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.title > h1 {
+  font-family: "PilseungGothic";
+  font-size: 24px;
+}
+
+#cal {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+#cal > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+#cal > li > h2 {
+  font-size: 18px;
+}
+
+#cal > li > span {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cal > li > time {
+  background-image: url(./images/images/todo_icon.svg);
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#today {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--color-green);
+  background-color: var(--color-green);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: black;
+}
+
+.category {
+  width: max-content;
+  height: 40px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  background-color: var(--color-dark-grey);
+  color: var(--color-green);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.category > p {
+  color: var(--color-green);
+}
+
+.add-task-btn {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  border: 1px solid var(--color-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.add-task-btn > i {
+  color: var(--color-green);
+}
+
+.add-task-btn:hover {
+  background-color: var(--color-green);
+  transition: 0.2s;
+}
+
+.add-task-btn:hover i {
+  color: white;
+  transition: 0.2s;
+}
+
+#listContainer {
+  list-style: none;
+}
+
+#listContainer > li {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#listContainer > li::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background-image: url(./images/images/todo_icon.svg);
+  background-size: cover;
+  display: block;
+  cursor: pointer;
+}
+
+#listContainer > li::before:hover {
+  fill: var(--color-green);
+}
+
+#taskInput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-dark-grey);
+  padding-bottom: 3px;
+  outline: 0;
+}
+
+#taskInput::placeholder {
+  font-size: 15px;
+}
