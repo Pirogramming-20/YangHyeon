@@ -68,6 +68,12 @@
   height: 100px;
   background-color: white;
   border-radius: var(--size-border-radius);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 80px;
 }
 
 .control-btn {
@@ -160,6 +166,30 @@
   display: block;
 }
 
+#checkAll-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+#checkAll-btn > svg {
+  display: none;
+  width: 20px;
+  height: 20px;
+  transition: 0.3s;
+}
+
+#checkAll-btn .checked {
+  display: block;
+}
+
 #delete-btn:hover > svg {
   fill: rgb(202, 91, 39);
   transition: 0.3s;
@@ -169,8 +199,8 @@
   width: 100%;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #record-list > li {
