@@ -13,7 +13,7 @@ const reset_btn = document.getElementById("reset-btn");
 
 //하단 버튼
 const all_check_btn = document.getElementById("checkAll-btn");
-const check_btn = document.getElementsByClassName("check-btn");
+
 const trash_btn = document.getElementById("delete-btn");
 
 //숫자 표시 함수
@@ -30,20 +30,8 @@ function display_time() {
 //숫자 기록 함수
 function record_time() {
   const record_html = `         
- <li>
-  <div class="check-btn">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="16"
-      width="14"
-      viewBox="0 0 448 512"
-      class=""
-    >
-      <path
-        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-      />
-    </svg>
-  </div>
+ <li class="record-li">
+  <div class="check-btn"></div>
   <div id="time">
     <span>${second[1]}${second[0]}</span>
     :
@@ -53,60 +41,80 @@ function record_time() {
   record.innerHTML = record.innerHTML.concat(record_html);
 }
 
+//초기값 출력
+display_time();
+
 //각 인터벌을 저장할 ID
 let upsecond1;
-let upsecond2;
-let upmillisecond1;
-let upmillisecond2;
+
+//start 상태 체크
+//이게 없으면 start 두번 누르면 stop 해도 멈추지 않는다.
+let flag = 0;
+
+let time_value = 0;
 
 // 숫자 카운트 시작
 start_btn.addEventListener("click", () => {
-  upsecond1 = setInterval(() => {
-    milli_second[0]++;
-    if (milli_second[0] === 10) milli_second[0] = 0;
-    display_time();
-  }, 10);
-  upsecond2 = setInterval(() => {
-    milli_second[1]++;
-    if (milli_second[1] === 10) milli_second[1] = 0;
-  }, 100);
-
-  upmillisecond1 = setInterval(() => {
-    second[0]++;
-    if (second[0] === 10) second[0] = 0;
-  }, 1000);
-
-  upmillisecond2 = setInterval(() => {
-    second[1]++;
-    if (second[1] === 10) second[1] = 0;
-  }, 10000);
+  if (flag == 0) {
+    flag = 1;
+    upsecond1 = setInterval(() => {
+      time_value++;
+      milli_second[0] = time_value % 10;
+      milli_second[1] = Math.floor(time_value / 10) % 10;
+      second[0] = Math.floor(time_value / 100) % 10;
+      second[1] = Math.floor(time_value / 1000) % 10;
+      display_time();
+    }, 10);
+  }
 });
 
 /*작동 중 숫자 카운트 일시정지*/
 stop_btn.addEventListener("click", () => {
   record_time();
   clearInterval(upsecond1);
-  clearInterval(upsecond2);
-  clearInterval(upmillisecond1);
-  clearInterval(upmillisecond2);
+  flag = 0;
 });
 
 //숫자 카운트 초기화
 reset_btn.addEventListener("click", () => {
   second[0] = second[1] = milli_second[0] = milli_second[1] = 0;
   clearInterval(upsecond1);
-  clearInterval(upsecond2);
-  clearInterval(upmillisecond1);
-  clearInterval(upmillisecond2);
   display_time();
+  flag = 0;
+  time_value = 0;
 });
 
-// /*체크 박스 표시*/
-// check_btn.addEventListener("click", () => {});
-// /* 전체 영역 체크 */
-// all_check_btn.addEventListener("click", () => {});
-// /*표시된 영역 삭제*/
-// trash_btn.addEventListener("click", () => {});
+/*개별 영역 */
+/*하나라도 지워지면 전체 영역 해제*/
+const ul = document.getElementById("record-list");
+ul.addEventListener("click", (e) => {
+  const check_btn = document.getElementsByClassName("check-btn");
+  const cbtn = Array.from(check_btn);
+  if (e.taget.tagName === "DIV") {
+    e.target.classList.toggle("body-checked");
+  }
+});
 
-//초기값 출력
-display_time();
+// /* 전체 영역 체크 */
+all_check_btn.addEventListener("click", (e) => {
+  const check_btn = document.getElementsByClassName("check-btn");
+  const cbtn = Array.from(check_btn);
+  if (cbtn.length !== 0) {
+    e.target.classList.toggle("all-checked");
+    /*전체 체크 해제 및 선택*/
+
+    cbtn.forEach((element) => {
+      element.classList.toggle("body-checked");
+    });
+  }
+});
+
+// /*표시된 영역 삭제*/
+trash_btn.addEventListener("click", () => {
+  const checked_list = document.getElementsByClassName("body-checked");
+  const cbtn = Array.from(checked_list);
+  cbtn.forEach((element) => {
+    console.log(element);
+    record.removeChild(element.parentElement);
+  });
+});

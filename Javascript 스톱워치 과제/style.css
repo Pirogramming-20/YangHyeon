@@ -142,52 +142,38 @@
   height: 30px;
 }
 
+#checkAll-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background-size: cover;
+  background-image: none;
+}
+
+.all-checked {
+  background-image: url(/check-fill.png) !important;
+}
+
 .check-btn {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 3px solid black;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: cover;
+  background-image: none;
 
   cursor: pointer;
 }
 
-.check-btn > svg {
-  display: none;
-  width: 20px;
-  height: 20px;
-  transition: 0.3s;
-}
-
-.check-btn .checked {
-  display: block;
-}
-
-#checkAll-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 3px solid black;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
-#checkAll-btn > svg {
-  display: none;
-  width: 20px;
-  height: 20px;
-  transition: 0.3s;
-}
-
-#checkAll-btn .checked {
-  display: block;
+.body-checked {
+  background-image: url(/check-fill.png);
 }
 
 #delete-btn:hover > svg {
@@ -210,9 +196,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 160px;
+  gap: 145px;
 }
 
 #time {
-  font-size: 30px;
+  font-size: 40px;
 }
