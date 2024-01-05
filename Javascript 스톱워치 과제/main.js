@@ -88,24 +88,44 @@ reset_btn.addEventListener("click", () => {
 /*하나라도 지워지면 전체 영역 해제*/
 const ul = document.getElementById("record-list");
 ul.addEventListener("click", (e) => {
-  const check_btn = document.getElementsByClassName("check-btn");
-  const cbtn = Array.from(check_btn);
-  if (e.taget.tagName === "DIV") {
+  if (e.target.classList.contains("check-btn")) {
     e.target.classList.toggle("body-checked");
   }
+
+  const check_btn = document.getElementsByClassName("check-btn");
+  const cbtn = Array.from(check_btn);
+  const all_cbtn = document.getElementById("checkAll-btn");
+
+  let entire_flag = 1;
+  cbtn.forEach((li_box) => {
+    if (!li_box.classList.contains("body-checked")) {
+      all_cbtn.classList.remove("all-checked");
+      entire_flag = 0;
+      return;
+    }
+  });
+  if (entire_flag == 1) all_cbtn.classList.add("all-checked");
 });
 
 // /* 전체 영역 체크 */
 all_check_btn.addEventListener("click", (e) => {
   const check_btn = document.getElementsByClassName("check-btn");
   const cbtn = Array.from(check_btn);
+
+  //비어있을 경우 클릭 안됨.
   if (cbtn.length !== 0) {
     e.target.classList.toggle("all-checked");
-    /*전체 체크 해제 및 선택*/
 
-    cbtn.forEach((element) => {
-      element.classList.toggle("body-checked");
-    });
+    /*전체 체크 해제 및 선택*/
+    if (e.target.classList.contains("all-checked")) {
+      cbtn.forEach((element) => {
+        element.classList.add("body-checked");
+      });
+    } else {
+      cbtn.forEach((element) => {
+        element.classList.remove("body-checked");
+      });
+    }
   }
 });
 
@@ -113,8 +133,13 @@ all_check_btn.addEventListener("click", (e) => {
 trash_btn.addEventListener("click", () => {
   const checked_list = document.getElementsByClassName("body-checked");
   const cbtn = Array.from(checked_list);
+  const all_cbtn = document.getElementById("checkAll-btn");
+
+  //모든 부분 삭제되었을 시 all-buttn 체크 초기화
+  if (all_cbtn.classList.contains("all-checked")) {
+    all_cbtn.classList.remove("all-checked");
+  }
   cbtn.forEach((element) => {
-    console.log(element);
     record.removeChild(element.parentElement);
   });
 });
