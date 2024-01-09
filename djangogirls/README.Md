@@ -51,6 +51,21 @@
    - 이렇게 적용된 DB 의 객체는 DBMS 에서 테이블로 적용되어 sql 문을 이용해 관리할 수 있는 것으로 보인다.
 
 8. Django 관리자
-   -blog app 의 admin.py 에 from models import Post 로 Post 클래스를 import 해준다.
+
+   - blog app 의 admin.py 에 from models import Post 로 Post 클래스를 import 해준다.
    - 이는 blog app 에서 사용될 admin 계정 , 즉 관리자 계정에서 Post를 하기 위해서이다.
    - # python manage.py createsuperuser 을 관리자 계정을 생성할 수 있다.
+
+9. Django urls
+   - path('',include('blog.urls')), 을 mysite/urls.py 속 urlpatterns 리스트에 추가해준다.
+   - 이는 '' 즉 http://127.0.0.1:8000 즉 local host 로 들어오는 요청을 blog.urls을 기반으로 표시한다는 뜻이다.
+   - mysite 의 url 은
+     from django.contrib import admin
+     from django.urls import path, include
+     이 2개를 import 했다. 기본적으로 생성된 admin과, url 경로 설정을 돕는 path include 를 불러온 것이다.
+   - blog 의 url 은
+     from django.urls import path
+     from . import views
+     이 2개를 import 했다. 이는 위와 같은 path 와 해당 app 에서 화면에 보여줄 views를 import 한 것이다.
+   - 여기까지만 진행한다면 views.post_list 가 아직 없기 때문에 runserver 가 제대로 작동하지 않는다.
+   - 실습 때는, index를 사용했지만 이번에는 views.post_list 로 정확히 명시하면서 적용한 점이 다르다.
