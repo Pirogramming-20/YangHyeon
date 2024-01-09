@@ -82,6 +82,7 @@
     - html 코드를 약식으로 작성하였다.
 
 12. Django ORM(Querysets)
+
     - 쿼리셋은 전달 받은 모델의 객체 목록이다. 세션에서 ORM 이란 관계 DBM 을 객체와 연결시켜주는 것이라고 하였다.
     - # Post.objects.all()을 통해 모든 객체를 가져올 수 있다.
     - # Post.objects.create(author=me, title='Sample title', text='Test')
@@ -97,3 +98,8 @@
     - # Post.objects.order_by('created_date') 을 이용해 .all 에서 오름차순 순으로 정렬도가능하다. ('-created_date')는 내림차순
     - # Post.objects.filter(published_date\_\_lte=timezone.now()).order_by('published_date')
     - 위 명령어는 쿼리셋 명령어들을 연결하여 여러 명령어를 하나의 명령어로 연결시킨 것을 의미한다.
+
+13. 템플릿 동적 데이터
+    - # blog/view.html 에 posts = Post.objects.filter(published_date\_\_lte=timezone.now()).order_by('published_date') 을 추가해준다. -> return render(request, 'blog/post_list.html', {'posts': posts}) 의 마지막 중괄호에 이것이 추가되면 html 파일에서 {{post}} 부분이 대체가 되게 된다.
+    - from django.utils import timezone
+      from .models import Post 해주는 것을 잊어서는 안된다.
