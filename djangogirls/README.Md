@@ -106,3 +106,17 @@
       from .models import Post 해주는 것을 잊어서는 안된다...
 
 14. Django 템플릿
+
+    - index.html 파일 안에서 {% for post in posts %} ~ {% endfor %} 와 같은 python 문법 사이에 오는 html 문장들을 올라온 posts 원소의 수만 큼 반복한다.
+    - 이때 사이트에서 post 추가는 admin만 할 수 있음에 유의하여야한다.
+
+15. CSS - 예쁘게 만들기
+    - 부트스트랩을 사용하기 위해 아래의 코드를 <head> 에 넣어준다.
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    - 이 부트스트랩이란 css를 작성함에 있어서 여러 기능을 더해주는 프레임워크이다.
+    - 정적파일은 migrations 와 templates 와 마찬가지로 blog, 즉 App 폴더 안에 static 이라는 폴더를 생성하여 그 안에 위치해야한다.
+    - blog/static/css/blog.css
+    - # {% load static %} 를 html 맨 위에 배치하여 static 에 있는 정적 파일들을 사용할 수 있게 해준다.
+    - 이때 쓰이는 static 안의 파일들은 로고와 같이 정적으로, 어떠한 객체들을 새로이 불러오지 않아도 되는 파일들을 정적파일들이라고 한다.
+    - 나머지는 지난 세션들 에서 배웠던 css 작성법과 유사하다.
