@@ -77,5 +77,23 @@
     - 하지만 return render(request, 'blog/post_list.html', {}) 을 해준다고 해도, post_list.html 이 없으므로 렌더링이 여전히 불가하다.
 
 11. HTMl 시작하기
+
     - blog apps 에 templates 폴더를 생성하여, blog app 에서 나뉘어지는 여러 url 들의 렌더링을 위한 html 파일들을 생성한다.
     - html 코드를 약식으로 작성하였다.
+
+12. Django ORM(Querysets)
+    - 쿼리셋은 전달 받은 모델의 객체 목록이다. 세션에서 ORM 이란 관계 DBM 을 객체와 연결시켜주는 것이라고 하였다.
+    - # Post.objects.all()을 통해 모든 객체를 가져올 수 있다.
+    - # Post.objects.create(author=me, title='Sample title', text='Test')
+    - 을 하기 위해 from django.contrib.auth.models import User 을 하여 User 정보들을 가져온다음,
+    - me = User.objects.get(username='yanghyeon') 을 하여 다시 적용하면 실행이 된다.
+    - 그런데 이때 Post.objects.create(author=yanghyeon, title='Sample title', text='Test') 은 작동하지 않았다..
+      그 이유는...? -> 아마도 author이 반환해야 하는건 객체이기 때문인 것 같다. get 을 통해서 해당 객체를 가져와야지만
+      비교가 가능하다고 생각된다. 추후 더 자세히 수정 예정
+    - # Post.objects.filter(author=me), Post.objects.filter(title\_\_contains='title')
+    - # Post.objects.filter(published_date\_\_lte=timezone.now())
+    - post = Post.objects.get(title="Sample title") 을 해주어서 위의 me 와 같이 인스턴스를 하나 생성해준다.
+    - post.publish() 를 통해 게시할 수 있다.
+    - # Post.objects.order_by('created_date') 을 이용해 .all 에서 오름차순 순으로 정렬도가능하다. ('-created_date')는 내림차순
+    - # Post.objects.filter(published_date\_\_lte=timezone.now()).order_by('published_date')
+    - 위 명령어는 쿼리셋 명령어들을 연결하여 여러 명령어를 하나의 명령어로 연결시킨 것을 의미한다.
