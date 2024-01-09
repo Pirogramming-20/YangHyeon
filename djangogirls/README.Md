@@ -72,5 +72,10 @@
    - 실습 때는, index를 사용했지만 이번에는 views.post_list 로 정확히 명시하면서 적용한 점이 다르다.
 
 10. Django 뷰 만들기
+
     - blog/view.py 에 9 단계에서 blog/url.py 에 추가했던 views.post_list 메소드를 정의해주었다.
     - 하지만 return render(request, 'blog/post_list.html', {}) 을 해준다고 해도, post_list.html 이 없으므로 렌더링이 여전히 불가하다.
+
+11. HTMl 시작하기
+    - blog apps 에 templates 폴더를 생성하여, blog app 에서 나뉘어지는 여러 url 들의 렌더링을 위한 html 파일들을 생성한다.
+    - html 코드를 약식으로 작성하였다.
