@@ -102,4 +102,4 @@
 13. 템플릿 동적 데이터
     - # blog/view.html 에 posts = Post.objects.filter(published_date\_\_lte=timezone.now()).order_by('published_date') 을 추가해준다. -> return render(request, 'blog/post_list.html', {'posts': posts}) 의 마지막 중괄호에 이것이 추가되면 html 파일에서 {{post}} 부분이 대체가 되게 된다.
     - from django.utils import timezone
-      from .models import Post 해주는 것을 잊어서는 안된다.
+      from .models import Post 해주는 것을 잊어서는 안된다...
