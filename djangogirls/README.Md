@@ -57,6 +57,7 @@
    - # python manage.py createsuperuser 을 관리자 계정을 생성할 수 있다.
 
 9. Django urls
+
    - path('',include('blog.urls')), 을 mysite/urls.py 속 urlpatterns 리스트에 추가해준다.
    - 이는 '' 즉 http://127.0.0.1:8000 즉 local host 로 들어오는 요청을 blog.urls을 기반으로 표시한다는 뜻이다.
    - mysite 의 url 은
@@ -69,3 +70,7 @@
      이 2개를 import 했다. 이는 위와 같은 path 와 해당 app 에서 화면에 보여줄 views를 import 한 것이다.
    - 여기까지만 진행한다면 views.post_list 가 아직 없기 때문에 runserver 가 제대로 작동하지 않는다.
    - 실습 때는, index를 사용했지만 이번에는 views.post_list 로 정확히 명시하면서 적용한 점이 다르다.
+
+10. Django 뷰 만들기
+    - blog/view.py 에 9 단계에서 blog/url.py 에 추가했던 views.post_list 메소드를 정의해주었다.
+    - 하지만 return render(request, 'blog/post_list.html', {}) 을 해준다고 해도, post_list.html 이 없으므로 렌더링이 여전히 불가하다.
