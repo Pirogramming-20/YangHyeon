@@ -28,6 +28,8 @@
 
 6. 나의 첫 번째 장고 프로젝트
 
+   - # python -m venv venv 로 venv 폴더 생성. (가상환경)
+   - # source venv/Scripts/activate 로 가상환경 실행
    - # django-admin startproject 이름 . -> 장고걸스 에서는 django-admin.py 라고 하였으나, 실제로는 .py 을 제거해야했음
    - # 설정 변경 -> mysite 에서 setting.py 의 설정을 한국에 맞게 수정하였다
    - # python manage.py runserver -> 세션 때 확인하였던 페이지 재확인
@@ -111,6 +113,7 @@
     - 이때 사이트에서 post 추가는 admin만 할 수 있음에 유의하여야한다.
 
 15. CSS - 예쁘게 만들기
+
     - 부트스트랩을 사용하기 위해 아래의 코드를 <head> 에 넣어준다.
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -120,3 +123,9 @@
     - # {% load static %} 를 html 맨 위에 배치하여 static 에 있는 정적 파일들을 사용할 수 있게 해준다.
     - 이때 쓰이는 static 안의 파일들은 로고와 같이 정적으로, 어떠한 객체들을 새로이 불러오지 않아도 되는 파일들을 정적파일들이라고 한다.
     - 나머지는 지난 세션들 에서 배웠던 css 작성법과 유사하다.
+
+16. 템플릿 확장하기
+
+- 기본적은 툴을 만들어 두고, 각 app 에서 원하는 url 별로 다른 화면을 보여줄 수 있도록 block 을 사용하여 분리시켰다.
+- {% block content %}
+  {% endblock %} 을 사용하여 넣고자 하는 html 위치를 표시하고, 해당 부분의 html 파일(post_list.html) 에 {% extends 'blog/base.html' %} 을 맨 위에 추가하여 base.html 에 해당 html이 포함됨을 알려준다.
