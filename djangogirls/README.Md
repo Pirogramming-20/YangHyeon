@@ -129,3 +129,14 @@
 - 기본적은 툴을 만들어 두고, 각 app 에서 원하는 url 별로 다른 화면을 보여줄 수 있도록 block 을 사용하여 분리시켰다.
 - {% block content %}
   {% endblock %} 을 사용하여 넣고자 하는 html 위치를 표시하고, 해당 부분의 html 파일(post_list.html) 에 {% extends 'blog/base.html' %} 을 맨 위에 추가하여 base.html 에 해당 html이 포함됨을 알려준다.
+
+17. 어플리케이션 확장하기
+
+- <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1> 을 post_list.html 에 추가하여, post_list 내용 중 포스트의 제목을 클릭하면 주어진 url 경로를 따라 포스트 상세 페이지가 열릴 수 있도록 하였다.
+- 위 내용에서 pk=post.pk 가 쓰였는데, 이때 pk란 Primary Key 즉 각 레코드들을 식별하는 기본키이다. 이때 Post 의 스키마를 설정할 때, Primary Key 를 따로 지정해주지 않았던 것을 기억할 수 있는데, 따라서 장고가 자동적으로 1, 2, 3 과 같이 숫자로 기본키를 지정해주게 된다. 이 기본키는 다른 레코드와는 겹치지 않고 한 레코드를 다른 레코드들과 구별하는데 사용하기에, pk 를 이용해 각 레코드의 세부 속성에 접근할 수 도 있다.
+- post/<int:pk> 라는 url 주소를 blog/url.py 에 추가하였는데, 이를 통해 위에서 받은 pk 정수가 어떤 url 으로 타고 들어갈 지 결정해주게 된다.
+- path('post/<int:pk>/', views.post_detail, name='post_detail'), 에 의해 받은 pk 와 request 를 veiws.py 의 post_detail 함수에 전달한다.
+- from django.shortcuts import render, get_object_or_404 을 상단에 삽입하고, 페이지를 요청했을 때, 실패한다면,
+  post = get_object_or_404(Post, pk=pk)
+  return render(request, 'blog/post_detail.html', {'post': post})
+  을 통해 404 페이지가 로드되게 만들어준다.
