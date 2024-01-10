@@ -140,3 +140,16 @@
   post = get_object_or_404(Post, pk=pk)
   return render(request, 'blog/post_detail.html', {'post': post})
   을 통해 404 페이지가 로드되게 만들어준다.
+
+18. Django 폼
+
+- 장고는 form 을 이용하여 여러 양식을 추가하여 페이지들을 꾸밀 수 있다. 이는 app 폴더 내부의 forms.py 에서 처리해준다.
+- def post_new(request):
+  form = PostForm()
+  return render(request, 'blog/post_edit.html', {'form': form})
+  여기에서 글을 입력하게 된다면, request.Post 가 해당 html 에서 받아온 정보들을 가지고 있다. 이때의 Post 는 model.py 에서 작업했던 바로 그 레코드가 아니고, "http" 에서의 GET, POST 할때의 그 POST 를 의미한다.
+- # Form 을 저장해주는 작업 commit=False 를 쓰는 이유는 추가 정보를 입력해야하기 때문이다.
+      post = form.save(commit=False)
+- PostForm 에 메타 데이터로 title, text를 입력해주었기 때문에, 위 내용이 없다면, 폼이 저장이 불가하게 되어있다.!
+- 다른 사람이 페이지를 수저아지 못하도록, 관리자 유저들만 이것을 수정할 수 있게 해주었다.
+  {% if user.is_authenticated %} ~ {%end if%} 사이에 적힌 a 태그들은 관리자 아이디로 로그인 했을 경우만 진행 가능하다.

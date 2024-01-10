@@ -20,6 +20,12 @@
   <body>
     <body>
       <div class="page-header">
+        <!-- post_new 라는 새로운 url 주소 , glyphicon-plus 라는 부트스트랩에 쓰이는 class -->
+        {% if user.is_authenticated %}<a
+          href="{% url 'post_new' %}"
+          class="top-menu"
+          ><span class="glyphicon glyphicon-plus"></span></a
+        >{% endif %}
         <h1><a href="/">Django Girls Blog</a></h1>
       </div>
       <div class="content container">
