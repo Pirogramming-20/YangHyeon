@@ -26,9 +26,9 @@ def movie_create(request):
             review = request.POST["review"],
             director = request.POST["director"],
             actor = request.POST["actor"],
-            poster = request.POST["poster"],
+            # poster = request.POST["poster"],
         )
-        return redirect("movies/")
+        return redirect("/movies")
     return render(request, "movies/movie_add.html")
 
 def movie_update(request, pk):
@@ -45,9 +45,9 @@ def movie_update(request, pk):
         movie.review = request.POST["review"]
         movie.director = request.POST["director"]
         movie.actor = request.POST["actor"]
-        movie.poster = request.POST["poster"]
+        # movie.poster = request.POST["poster"]
         movie.save()
-        return redirect(f"movies/{pk}")
+        return redirect(f"/movies/{pk}")
     return render(request, "movies/movie_update.html",context)
 
 def movie_delete(request, pk):
@@ -55,5 +55,4 @@ def movie_delete(request, pk):
         movie = Movie.objects.get(id=pk)
         movie.delete()
     return redirect("/movies")
-
 

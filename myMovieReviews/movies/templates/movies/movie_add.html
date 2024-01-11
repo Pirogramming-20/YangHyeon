@@ -1,11 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>영화 정보 등록</title>
+    <title>🍅영화 정보 등록</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/top.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/movie_add.css' %}" />
   </head>
   <body>
-    <h1>영화 등록 페이지</h1>
+    <header>
+      <a href="/movies" id="top-banner"
+        >YRT
+        <div>Yang's Rotten Tomatoes</div></a
+      >
+    </header>
+    <section>
+      <form action="/movies/create" method="post">
+        {% csrf_token %}
+        <div class="input_line">
+          영화 제목 :
+          <input name="title" placeholder="영화 제목을 입력해주세요." />
+        </div>
+        <div class="input_line">
+          개봉 년도 :
+          <input name="r_date" placeholder="개봉년도를 입력해주세요." />
+        </div>
+        <div class="input_line">
+          장르 : <input name="genre" placeholder="장르를 입력해주세요." />
+        </div>
+        <div class="input_line">
+          별점 : <input name="rate" placeholder="별점을 입력해주세요." />
+        </div>
+        <div class="input_line">
+          러닝타임 :
+          <input
+            name="running_time"
+            placeholder="러닝타임을 분 단위로 입력해주세요."
+          />
+        </div>
+        <div class="input_line">
+          감독 :
+          <input name="director" placeholder="감독을 입력해주세요." />
+        </div>
+        <div class="input_line">
+          주연 :
+          <input name="actor" placeholder="배우를 입력해주세요." />
+        </div>
+        <div class="input_line">
+          평가내용 :
+          <textarea
+            name="review"
+            cols="30"
+            rows="10"
+            placeholder="리뷰내용"
+          ></textarea>
+        </div>
+
+        <input type="submit" value="등록" class="submit-button" />
+      </form>
+    </section>
   </body>
 </html>

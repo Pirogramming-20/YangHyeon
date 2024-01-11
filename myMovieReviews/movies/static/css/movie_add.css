@@ -1,0 +1,18 @@
+input {
+  border: none !important;
+}
+
+.input_line {
+  position: relative;
+}
+
+.input_line::before {
+  content: "";
+  width: 3px;
+  height: 24px;
+  background-color: #fa320a;
+
+  position: absolute;
+  left: -10px;
+  top: -4px;
+}

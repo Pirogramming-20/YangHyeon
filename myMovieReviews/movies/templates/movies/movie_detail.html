@@ -1,11 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 소개</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/top.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/movie_detail.css' %}" />
   </head>
   <body>
-    <h1>영화 소개 페이지</h1>
+    <header>
+      <a href="/movies" id="top-banner"
+        >YRT
+        <div>Yang's Rotten Tomatoes</div></a
+      >
+    </header>
+    <section class="detail-section">
+      <div class="section-left">여기엔 전체 게시글 올릴 예정</div>
+      <div class="section-right">
+        <div class="section-middle">
+          <div class="poster"></div>
+
+          <div class="section-middle-right">
+            <h1>{{movie.title}}</h1>
+            <div class="describe-middle">
+              <p>
+                {{movie.release_date}}, {{movie.genre}}, {{movie.running_time}}
+                m
+              </p>
+            </div>
+
+            <div class="describe-bottom">
+              <div class="rate">🍅 {{movie.rate}}</div>
+              <div class="staff">
+                <div class="staff-icon"></div>
+                <div class="staff-info">
+                  <div class="staff-info-box">
+                    감독
+                    <p>{{movie.director}}</p>
+                  </div>
+                  <div class="staff-info-box">
+                    주연
+                    <p>{{movie.actor}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="display-menu"><h2>REVIEW</h2></div>
+        <div class="section-bottom">{{movie.review}}</div>
+        <div class="section-btn">
+          <a href="/movies/{{movie.pk}}/update" class="update-btn"
+            >페이지 수정</a
+          >
+          <form action="/movies/{{movie.pk}}/delete" method="post">
+            {% csrf_token %}
+            <input type="submit" value="삭제" class="delete-btn" />
+          </form>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,14 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyRottenTomato</title>
+    <title>🍅 MyRottenTomato</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/top.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/movie_list.css' %}" />
   </head>
   <body>
-    <h1>영화 전체 페이지</h1>
-    {% for movie in movies%}
-    <div></div>
-    {% endfor %}
+    <header>
+      <a href="/movies" id="top-banner"
+        >YRT
+        <div>Yang's Rotten Tomatoes</div></a
+      >
+      <a href="/movies/create" class="add-review"> 리뷰 작성 </a>
+    </header>
+    <section class="display-section">
+      <div class="display-menu"><h2>영화 리뷰</h2></div>
+      <div class="display-movie">
+        {% for movie in movies%}
+        <div class="movie">
+          <div class="movie-poster">{{movie.poster}}</div>
+          <div class="movie-rate">🍅 {{movie.rate}}</div>
+          <a class="movie-title" href="/movies/{{movie.pk}}">{{movie.title}}</a>
+          <div class="movie-info">{{movie.release_data}}</div>
+          <div class="movie-info">{{movie.genre}}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
   </body>
 </html>
