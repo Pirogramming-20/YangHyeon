@@ -19,46 +19,71 @@
     <section>
       <form action="/movies/{{movie.pk}}/update" method="post">
         {% csrf_token %}
-        <input
-          name="title"
-          placeholder="영화 제목을 입력해주세요."
-          value="{{movie.title}}"
-        /><br />
-        <input
-          name="r_date"
-          placeholder="개봉년도를 입력해주세요."
-          value="{{movie.release_date}}"
-        /><br />
-        <select name="genre">
-          <option value="공포">공포</option>
-          <option value="스릴러">스릴러</option>
-          <option value="코믹">코믹</option>
-          <option value="드라마">드라마</option></select
-        ><br />
-        <input
-          name="rate"
-          placeholder="별점을 입력해주세요."
-          value="{{movie.rate}}"
-        /><br />
-        <input
-          name="running_time"
-          placeholder="러닝타임을 입력해주세요."
-          value="{{movie.running_time}}"
-        /><br />
-        <textarea name="review" cols="30" rows="10" placeholder="리뷰내용">
+        <div class="input_line">
+          영화 제목 :
+          <input
+            name="title"
+            placeholder="영화 제목을 입력해주세요."
+            value="{{movie.title}}"
+          />
+        </div>
+        <div class="input_line">
+          개봉 년도 :
+          <input
+            name="r_date"
+            placeholder="개봉년도를 입력해주세요."
+            value="{{movie.release_date}}"
+          />
+        </div>
+        <div class="input_line">
+          장르 :
+          <select name="genre">
+            <option value="공포">공포</option>
+            <option value="스릴러">스릴러</option>
+            <option value="코믹">코믹</option>
+            <option value="드라마">드라마</option>
+          </select>
+        </div>
+        <div class="input_line">
+          별점 :
+          <input
+            name="rate"
+            placeholder="별점을 입력해주세요."
+            value="{{movie.rate}}"
+          />
+        </div>
+        <div class="input_line">
+          러닝타임 :
+          <input
+            name="running_time"
+            placeholder="분 단위로 입력해주세요."
+            value="{{movie.running_time}}"
+          />
+        </div>
+        <div class="input_line">
+          감독 :
+          <input
+            name="director"
+            placeholder="감독을 입력해주세요."
+            value="{{movie.director}}"
+          />
+        </div>
+        <div class="input_line">
+          주연 :
+          <input
+            name="actor"
+            placeholder="배우를 입력해주세요."
+            value="{{movie.actor}}"
+          />
+        </div>
+        <div class="input_line">
+          평가내용 :
+          <textarea name="review" cols="30" rows="10" placeholder="">
 {{movie.review}}</textarea
-        >
-        <input
-          name="director"
-          placeholder="감독을 입력해주세요."
-          value="{{movie.director}}"
-        /><br />
-        <input
-          name="actor"
-          placeholder="배우를 입력해주세요."
-          value="{{movie.actor}}"
-        /><br />
-        <input type="submit" value="수정 완료" class="submit-button" />
+          >
+        </div>
+
+        <input type="submit" value="저장" class="submit-button" />
       </form>
     </section>
   </body>
