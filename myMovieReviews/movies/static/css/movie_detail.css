@@ -16,8 +16,36 @@
   display: block;
   width: 330px;
   height: 500px;
-  background-color: lightgrey;
+  border: 1px solid lightgray;
+  border-radius: 4px;
   margin: 5px 10px 10px;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 15px 10px 15px;
+}
+
+.movie > a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.movie-title {
+  font-size: 14px;
+  color: #44464d;
+}
+
+.movie-rate {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2a2c32;
 }
 
 .section-right {

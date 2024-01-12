@@ -18,7 +18,14 @@
       <a href="/movies/create" class="add-review"> 리뷰 작성 </a>
     </header>
     <section class="display-section">
-      <div class="display-menu"><h2>영화 리뷰</h2></div>
+      <div class="display-menu">
+        <h2>영화 리뷰</h2>
+        <div>
+          <a href="/movies/orderby_title">이름순</a>
+          <a href="/movies/orderby_rate">별점순</a>
+          <a href="/movies/orderby_runningtime">러닝타임순</a>
+        </div>
+      </div>
       <div class="display-movie">
         {% for movie in movies%}
         <div class="movie">

@@ -8,10 +8,37 @@ def movie_list(request):
     }
     return render(request, "movies/movie_list.html", context)
 
+def movie_list_orderby_title(request):
+    movies = Movie.objects.all().order_by('title')
+    context = {
+        "movies" : movies
+    }
+    return render(request, "movies/movie_list.html", context)
+
+def movie_list_orderby_runningtime(request):
+    movies = Movie.objects.all().order_by('-running_time')
+    context = {
+        "movies" : movies
+    }
+    return render(request, "movies/movie_list.html", context)
+
+def movie_list_orderby_rate(request):
+    movies = Movie.objects.all().order_by('-rate')
+    context = {
+        "movies" : movies
+    }
+    return render(request, "movies/movie_list.html", context)
+
 def movie_detail(request, pk):
     movie = Movie.objects.get(id = pk)
+    all_movies = Movie.objects.all()
+    run_hour = movie.running_time // 60
+    run_minute = movie.running_time % 60
     context={
-        "movie" : movie
+        "movie" : movie,
+        "run_hour" : run_hour,
+        "run_minute" : run_minute,
+        "all_movies" : all_movies,
     }
     return render(request, "movies/movie_detail.html",context)
 

@@ -17,7 +17,16 @@
       >
     </header>
     <section class="detail-section">
-      <div class="section-left">여기엔 전체 게시글 올릴 예정</div>
+      <div class="section-left">
+        {% for a_movie in all_movies%}
+        <div class="movie">
+          <a class="movie-link" href="/movies/{{movie.pk}}">
+            <div class="movie-rate">🍅 {{a_movie.rate}}</div>
+            <div class="movie-title">{{a_movie.title}}</div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
       <div class="section-right">
         <div class="section-middle">
           <div class="poster"></div>
@@ -26,8 +35,8 @@
             <h1>{{movie.title}}</h1>
             <div class="describe-middle">
               <p>
-                {{movie.release_date}}, {{movie.genre}}, {{movie.running_time}}
-                m
+                {{movie.release_date}}, {{movie.genre}}, {{run_hour}}h
+                {{run_minute}}m
               </p>
             </div>
 
