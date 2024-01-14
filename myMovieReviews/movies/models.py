@@ -10,4 +10,4 @@ class Movie(models.Model):
     review = models.TextField()
     director = models.CharField(max_length=32)
     actor = models.CharField(max_length = 100)
-    poster = models.CharField(max_length=200)
+    poster = models.ImageField(upload_to='/images/uploads/')
