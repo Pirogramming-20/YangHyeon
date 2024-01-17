@@ -71,3 +71,35 @@
 section > div:first-of-type {
   margin: 10px 20px;
 }
+
+.page_selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  margin: 20px;
+}
+
+.before_page_btn,
+.after_page_btn {
+  cursor: pointer;
+}
+
+.page_btn {
+  width: 20px;
+  height: 100%;
+  text-align: center;
+}
+.current-page {
+  color: black;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-weight: bold;
+  background-color: rgb(153, 173, 153);
+}
+
+.page_number_list {
+  display: flex;
+  gap: 10px;
+}
