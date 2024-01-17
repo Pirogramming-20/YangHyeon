@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block head %}
-<div>Idea Detail</div>
+<h1>Idea Detail</h1>
 <div>
   아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히
   살펴보세요.
@@ -7,8 +7,11 @@
 {% endblock %} {% block content %}
 <div class="idea-detail-block">
   <img src="{{idea.thumbnail.url}}" alt="" />
-  <div class="idea-detail-content">
+  <div class="idea-detail-content marker-exist">
     <h1>{{idea.title}}</h1>
+    <span class="marker-exist detail-marker-place"
+      ><div class="marker"></div
+    ></span>
     1) 아이디어 관심도<br />
     <p>{{idea.interst}}</p>
     2) 예상 개발 툴<br />

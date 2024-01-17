@@ -1,15 +1,30 @@
 {% extends 'base.html' %} {% block head %}
-<div>Idea List</div>
+<h1>Idea List</h1>
 <div>나의 아이디어를 잊지 말고 기록해보세요.</div>
 {% endblock %} {% block content %}
-<div class="idea-block-list">
+<div class="sort-select">
+  <form action="/ideas/" id="sort_form" method="GET" name="sort_form">
+    <select class="sort-list" name="sort" onchange="submitSelect()">
+      <option value="none">--정렬기준--</option>
+      <option value="mark">찜하기순</option>
+      <option value="upload">등록순</option>
+      <option value="recently">최신순</option>
+      <option value="name">이름순</option>
+      <option value="interst">관심도순</option>
+    </select>
+  </form>
+</div>
+<div class="idea-block-list marker-exist">
   {% for idea in ideas%}
   <div class="idea-block">
+    <div class="marker"></div>
     <img src="{{idea.thumbnail.url}}" alt="" class="thumbnail" /><br />
     <a href="{% url 'ideas:detail' idea.pk %}">{{idea.title}}</a>
     <p>예상 개발 툴 : {{idea.tools}}</p>
     <div>
-      아이디어 관심도 : <button>+</button> {{idea.interst}} <button>-</button>
+      아이디어 관심도 :
+      <button class="plus-btn" onclick="upinterst()">+</button> {{idea.interst}}
+      <button class="minus-btn" onclick="downinterst()">-</button>
     </div>
   </div>
 

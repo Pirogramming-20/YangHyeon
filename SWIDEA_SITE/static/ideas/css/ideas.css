@@ -2,3 +2,66 @@
   width: 100px;
   height: 100px;
 }
+
+.idea-block-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0.7;
+}
+
+.idea-block {
+  width: 200x;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  background-color: rgb(196, 231, 208);
+  margin: 20px;
+}
+
+.marker-exist {
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 20px;
+  height: 20px;
+
+  background-image: url("/static/ideas/images/unchecked.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.detail-marker-place > .marker {
+  position: absolute;
+  top: -49px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+}
+
+.checked-marker {
+  background-image: url("/static/ideas/images/checked.png") !important;
+}
+
+.idea-detail-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.idea-detail-block > img {
+  width: 200px;
+  height: 200px;
+}

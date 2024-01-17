@@ -5,3 +5,4 @@ class IdeaForm(forms.ModelForm):
     class Meta():
         model = Idea
         fields = ('__all__')
+        exclude=['mark']

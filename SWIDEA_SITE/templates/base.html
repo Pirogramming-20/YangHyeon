@@ -11,14 +11,17 @@
   </head>
   <body>
     <header>
-      <div>My SW IDEA Manage</div>
-      <a href="{% url 'ideas:create' %}"> 아이디어 등록 </a>
-      <a href="{% url  'ideas:list' %}"> 아이디어 관리 </a>
-      <a href="{% url  'devtools:create' %}"> 개발툴 등록 </a>
-      <a href="{% url  'devtools:list' %}"> 개발툴 관리 </a>
+      <h1>My SW IDEA Manage</h1>
+      <div class="header-menu">
+        <a href="{% url 'ideas:create' %}"> 아이디어 등록 </a>
+        <a href="{% url  'ideas:list' %}"> 아이디어 관리 </a>
+        <a href="{% url  'devtools:create' %}"> 개발툴 등록 </a>
+        <a href="{% url  'devtools:list' %}"> 개발툴 관리 </a>
+      </div>
     </header>
     <section>
       {%block head%} {%endblock%} {%block content%} {%endblock%}
     </section>
+    <script src="/static/ideas/js/ideas.js\"></script>
   </body>
 </html>

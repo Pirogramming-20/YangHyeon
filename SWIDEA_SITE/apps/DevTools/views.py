@@ -4,10 +4,15 @@ from .forms import ToolForm
 
 # Create your views here.
 def list(request):
+ 
     devtools = DevTool.objects.all()
+    search_txt = request.GET.get('search_txt')
+    if search_txt:
+        devtools = devtools.filter(name__contains=search_txt)
     context={
         'devtools' : devtools,
     }
+
     return render(request, 'DevTools/devtools_list.html', context)
 
 

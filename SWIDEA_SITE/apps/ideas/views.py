@@ -4,7 +4,23 @@ from .forms import IdeaForm
 
 # Create your views here.
 def list(request):
-    ideas = Idea.objects.all()
+
+    try:
+        sort_standard = request.GET['sort']
+    except:
+        sort_standard = None
+
+    if sort_standard == 'recently':
+        ideas = Idea.objects.all().order_by('-pk')
+    elif sort_standard == 'name':
+        ideas = Idea.objects.all().order_by('title')
+    elif sort_standard == 'interst':
+        ideas = Idea.objects.all().order_by('-interst')
+    elif sort_standard == 'mark':
+        ideas = Idea.objects.all().order_by('mark')
+    else :
+        ideas = Idea.objects.all()
+
     context={
         'ideas' : ideas,
     }

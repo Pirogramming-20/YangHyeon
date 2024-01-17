@@ -4,6 +4,12 @@
   개발툴 목록 페이지 입니다. 자신이 사용가능한 개발들의 목록을 확인해보세요.
 </div>
 {% endblock %} {% block content %}
+<div class="search-box">
+  <form action="{% url 'devtools:list' %}">
+    <input type="input" name="search_txt" placeholder="검색어..." />
+    <input class="btn" type="submit" value="검색" />
+  </form>
+</div>
 <div class="tools-block-list">
   {% for devtool in devtools%}
   <div class="tools-block">

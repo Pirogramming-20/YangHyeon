@@ -8,3 +8,4 @@ class Idea(models.Model):
     content = models.TextField()
     interst = models.IntegerField('아이디어 관심도', default = 0)
     tools = models.ForeignKey(DevTool, on_delete=models.CASCADE, verbose_name='예상 개발툴')
+    mark = models.IntegerField(default=0)
