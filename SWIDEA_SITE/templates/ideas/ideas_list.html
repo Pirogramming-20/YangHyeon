@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block head %}
+<div>Idea List</div>
+<div>나의 아이디어를 잊지 말고 기록해보세요.</div>
+{% endblock %} {% block content %}
+<div class="idea-block-list">
+  {% for idea in ideas%}
+  <div class="idea-block">
+    <img src="{{idea.thumbnail.url}}" alt="" class="thumbnail" /><br />
+    <a href="{% url 'ideas:detail' idea.pk %}">{{idea.title}}</a>
+    <p>예상 개발 툴 : {{idea.tools}}</p>
+    <div>
+      아이디어 관심도 : <button>+</button> {{idea.interst}} <button>-</button>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}
