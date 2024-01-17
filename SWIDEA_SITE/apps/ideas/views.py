@@ -17,14 +17,29 @@ def list(request):
     elif sort_standard == 'interst':
         ideas = Idea.objects.all().order_by('-interst')
     elif sort_standard == 'mark':
-        ideas = Idea.objects.all().order_by('mark')
+        ideas = Idea.objects.all().order_by('-mark')
     else :
         ideas = Idea.objects.all()
+
+    if request.method == "POST":
+        try:
+            mark_info = request.POST['marker']
+        except:
+            mark_info = None
+        else:
+            target = Idea.objects.get(id = mark_info)
+            if target.mark:
+                target.mark = 0
+            else : 
+                target.mark = 1
+            target.save()
 
     context={
         'ideas' : ideas,
     }
     return render(request, 'ideas/ideas_list.html', context)
+
+
 
 def create(request):
     if request.method == "POST":
@@ -57,14 +72,30 @@ def update(request,pk):
         return render(request, "ideas/ideas_update.html",context)
 
 def detail(request, pk):
-    if request.method == "GET":
-        idea = Idea.objects.get(id = pk)
-        devtool_pk = idea.tools.pk
-        context = {
-            "idea" : idea,
-            "devtool_pk" : devtool_pk,
-        }
-        return render(request,"ideas/ideas_detail.html", context )
+
+    if request.method == "POST":
+        try:
+            mark_info = request.POST['marker']
+        except:
+            mark_info = None
+        else:
+            target = Idea.objects.get(id = mark_info)
+            print("이전 마크 값 :  ",target.mark)
+            if target.mark:
+                target.mark = 0
+            else : 
+                target.mark = 1
+            target.save()
+            print("새 마크 값 :  ",target.mark)
+
+    idea = Idea.objects.get(id = pk)
+    devtool_pk = idea.tools.pk
+    context = {
+        "idea" : idea,
+        "devtool_pk" : devtool_pk,
+    }
+    return render(request,"ideas/ideas_detail.html", context )
+
     
 def delete(request, pk):
     if request.method == "POST":

@@ -9,9 +9,24 @@
   <img src="{{idea.thumbnail.url}}" alt="" />
   <div class="idea-detail-content marker-exist">
     <h1>{{idea.title}}</h1>
-    <span class="marker-exist detail-marker-place"
-      ><div class="marker"></div
-    ></span>
+    <span class="marker-exist detail-marker-place">
+      <form
+        action="{%url 'ideas:detail' idea.pk %}"
+        id="mark_form"
+        name="mark_form"
+        method="post"
+      >
+        {%csrf_token%} {% if idea.mark == 1 %}
+        <button
+          class="marker checked-marker"
+          name="marker"
+          value="{{idea.pk}}"
+        ></button>
+        {% elif idea.mark == 0 %}
+        <button class="marker" name="marker" value="{{idea.pk}}"></button>
+        {% endif %}
+      </form></span
+    >
     1) 아이디어 관심도<br />
     <p>{{idea.interst}}</p>
     2) 예상 개발 툴<br />

@@ -39,6 +39,8 @@
   background-image: url("/static/ideas/images/unchecked.png");
   background-size: contain;
   background-repeat: no-repeat;
+
+  border: none;
 }
 
 .detail-marker-place > .marker {

@@ -17,7 +17,17 @@
 <div class="idea-block-list marker-exist">
   {% for idea in ideas%}
   <div class="idea-block">
-    <div class="marker"></div>
+    <form action="/ideas/" id="mark_form" name="mark_form" method="post">
+      {%csrf_token%}{% if idea.mark == 1 %}
+      <button
+        class="marker checked-marker"
+        name="marker"
+        value="{{idea.pk}}"
+      ></button>
+      {% elif idea.mark == 0 %}
+      <button class="marker" name="marker" value="{{idea.pk}}"></button>
+      {% endif %}
+    </form>
     <img src="{{idea.thumbnail.url}}" alt="" class="thumbnail" /><br />
     <a href="{% url 'ideas:detail' idea.pk %}">{{idea.title}}</a>
     <p>예상 개발 툴 : {{idea.tools}}</p>
