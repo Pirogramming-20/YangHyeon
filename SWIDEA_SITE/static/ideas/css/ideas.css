@@ -67,3 +67,7 @@
   width: 200px;
   height: 200px;
 }
+
+section > div:first-of-type {
+  margin: 10px 20px;
+}

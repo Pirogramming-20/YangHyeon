@@ -33,8 +33,11 @@
     <p>예상 개발 툴 : {{idea.tools}}</p>
     <div>
       아이디어 관심도 :
-      <button class="plus-btn" onclick="upinterst()">+</button> {{idea.interst}}
-      <button class="minus-btn" onclick="downinterst()">-</button>
+      <button class="plus-btn" onclick="upinterst({{idea.pk}}, 'up')">+</button>
+      <span class="interst_{{idea.pk}}">{{idea.interst}}</span>
+      <button class="minus-btn" onclick="downinterst({{idea.pk}},'down')">
+        -
+      </button>
     </div>
   </div>
 

@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <h1>My SW IDEA Manage</h1>
+      <a href="{% url 'ideas:list'%}"><h1>My SW IDEA Manage</h1></a>
       <div class="header-menu">
         <a href="{% url 'ideas:create' %}"> 아이디어 등록 </a>
         <a href="{% url  'ideas:list' %}"> 아이디어 관리 </a>

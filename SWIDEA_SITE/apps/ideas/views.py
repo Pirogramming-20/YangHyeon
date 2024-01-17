@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import IdeaForm
+import json
 
 # Create your views here.
 def list(request):
@@ -33,6 +34,22 @@ def list(request):
             else : 
                 target.mark = 1
             target.save()
+
+    if request.method == "PUT":
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+            pk = int(data.get('pk'))
+            dir = str(data.get('dir'))
+        except:
+            print("error!")
+        else:
+            idea = Idea.objects.get(id = pk)
+            if dir == 'up':
+                idea.interst += 1
+            elif dir == 'down':
+                idea.interst -= 1
+            idea.save()
+            
 
     context={
         'ideas' : ideas,
@@ -101,3 +118,5 @@ def delete(request, pk):
     if request.method == "POST":
         Idea.objects.get(id=pk).delete()
         return redirect("/ideas")
+    
+    

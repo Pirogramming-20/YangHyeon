@@ -2,22 +2,43 @@ function submitSelect() {
   document.getElementById("sort_form").submit();
 }
 
-const idea_list = document.querySelector(".marker-exist");
-
-idea_list.addEventListener("click", (e) => {
-  if (e.target.classList.contains("marker")) {
-    //e.target.classList.toggle("checked-marker");
-  }
-});
-
-function mark() {
-  console.log("mark");
+const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+function upinterst(pk, dir) {
+  fetch("/ideas/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrftoken,
+    },
+    body: JSON.stringify({ pk: pk, dir: dir }),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const selector = `.interst_${pk}`;
+      const interst = document.querySelector(selector);
+      interst.innerHTML = Number(interst.innerHTML) + 1;
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
 }
 
-function unmark() {
-  console.log("unmark");
+function downinterst(pk, dir) {
+  fetch("/ideas/", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrftoken,
+    },
+    body: JSON.stringify({ pk: pk, dir: dir }),
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      const selector = `.interst_${pk}`;
+      const interst = document.querySelector(selector);
+      interst.innerHTML = Number(interst.innerHTML) - 1;
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
 }
-
-function upinterst() {}
-
-function downinterst() {}
