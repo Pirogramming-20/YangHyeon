@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load static %}{% block content%}
+<section class="post_create">
+  <form
+    action="{% url 'posts:create' %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <input class="btn submit-btn" type="submit" value="새 게시물 만들기" />
+    <div class="input_area">{%csrf_token%} {{form.as_p}}</div>
+  </form>
+</section>
+{%endblock%}

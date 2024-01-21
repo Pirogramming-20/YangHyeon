@@ -1,0 +1,46 @@
+/*설정 */
+@font-face {
+  font-family: "MYHaemalgeunSangsang";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYHaemalgeunSangsang.woff2")
+    format("woff2");
+  font-style: normal;
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --green-1: #0bec12;
+  --green-2: rgba(73, 191, 77, 0.8);
+  --green-3: rgba(73, 191, 77, 0.6);
+}
+
+/*전체*/
+body {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+/* 왼쪽 사이드바 */
+.menu {
+  height: 100%;
+  width: 244px;
+  border-right: 2px solid lightgray;
+
+  padding: 8px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: fixed;
+}
+.menu a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+#main-logo {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "MYHaemalgeunSangsang";
+}

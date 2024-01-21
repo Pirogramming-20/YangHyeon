@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% load static %} {%block head%}
+<link
+  rel="stylesheet"
+  href="{%static 'posts/css/post_list.css'%}"
+/>{%endblock%}{% block content %}
+
+<main>
+  <div class="content_list">
+    <div class="user_list">
+      {% for user in users %}
+      <div class="a_profile">
+        <div class="profile_circle"><img src="{{user.profile.url}}" /></div>
+        <span>{{user.username}}</span>
+      </div>
+      {% endfor%}
+    </div>
+    {% for post in posts %}
+    <div class="a_post">
+      <div class="post_header">
+        <div class="profile_circle2">
+          <img src="{{post.user.profile.url}}" />
+        </div>
+        <span>{{post.user.username}}</span>
+      </div>
+
+      <div class="post_image">
+        <img src="{{ post.photo.url }}" alt="게시 이미지" />
+      </div>
+
+      <div class="post_buttons">
+        <button class="post_like_btn" onclick="pushLike({{post.id}})"></button>
+        <a class="post_comment_all" href=""></a>
+      </div>
+      <div class="like post-{{post.id}}">좋아요 {{post.likeNum}} 개</div>
+      <div class="post_title">{{ post.title }}</div>
+      <div class="post_content">{{ post.content }}</div>
+      <a class="post_comment_all" href="">댓글 모두 보기</a>
+      <div>댓글 영역</div>
+      <div>댓글 달기</div>
+    </div>
+    {% endfor %}
+  </div>
+  <aside class="follower"></aside>
+</main>
+
+{% endblock %} {% block scripts %}
+<script>
+  const like_btn = document.querySelector(".post_like_btn");
+  like_btn.addEventListener("click", (e) => {
+    if (e.target.classList.contains("post_like_btn")) {
+      e.target.classList.toggle("liked");
+    }
+  });
+
+  const requestLike = new XMLHttpRequest();
+
+  function pushLike(post_id) {
+    const url = "/main/like/";
+    requestLike.open("POST", url, true);
+    requestLike.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
+
+    requestLike.send(JSON.stringify({ post_id: post_id }));
+  }
+
+  requestLike.onreadystatechange = () => {
+    if (requestLike.readyState === XMLHttpRequest.DONE) {
+      if (requestLike.status < 400) {
+        const { post_id, LikeNum, likeTag } = JSON.parse(requestLike.response);
+        const element = document.querySelector(`.post-${post_id}`);
+        const originHTML = element.innerHTML;
+        const [text, likenum, gae] = originHTML.split(" ");
+        let newnum = 0;
+
+        if (likeTag == "liked") {
+          newnum = Number(likenum) + 1;
+        } else {
+          newnum = Number(likenum) - 1;
+        }
+
+        element.innerHTML = `좋아요 ${newnum} 개`;
+      }
+    }
+  };
+</script>
+{% endblock %}

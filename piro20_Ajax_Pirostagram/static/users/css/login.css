@@ -1,0 +1,82 @@
+/* 로그인 섹션*/
+
+.if_not_logined {
+  flex: 1;
+}
+
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+}
+
+.login-section > img {
+  height: 540px;
+  width: 350px;
+}
+
+.login-section > section {
+  height: 540px;
+  width: 400px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.login-section > section h1 {
+  font-family: "MYHaemalgeunSangsang";
+  font-size: 50px;
+  font-weight: bold;
+  height: 60px;
+  text-align: center;
+}
+
+#main-link-btn {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "MYHaemalgeunSangsang";
+}
+
+#login-btn {
+  width: 268px;
+  height: 32px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  transition: 0.3s;
+  cursor: pointer;
+
+  margin-top: 10px;
+}
+#login-btn:hover {
+  background-color: #1763cf;
+}
+
+.else {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bar {
+  width: 150px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.register_btn {
+  color: #0095f6;
+  font-weight: bold;
+  cursor: pointer;
+}

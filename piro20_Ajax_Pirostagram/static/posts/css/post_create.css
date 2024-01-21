@@ -1,0 +1,27 @@
+.post_create {
+  width: 855px;
+  height: 897px;
+  z-index: 100;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: lightgray;
+}
+
+.submit-btn {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: transparent;
+  width: 100%;
+  height: 42px;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.input_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

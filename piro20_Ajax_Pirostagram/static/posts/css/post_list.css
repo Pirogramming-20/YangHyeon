@@ -1,0 +1,157 @@
+/* 중앙 컨텐츠 */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 중앙 위쪽 */
+.user_list {
+  width: 630px;
+  height: 85px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.a_profile {
+  width: 64px;
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.profile_circle {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+}
+
+.profile_circle > img {
+  width: 64px;
+  height: 64px;
+}
+
+/* 중앙 왼쪽쪽 --> 게시글*/
+.content_list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* 중앙 오른쪽 --> 팔로워 (추가구현 완료시)*/
+.follower {
+  width: 379px;
+  height: 100%;
+}
+
+/*게시글*/
+
+.a_post {
+  width: 630px;
+  height: 814px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+
+  margin: 10px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.a_post::after {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  height: 2px;
+  background-color: lightgray;
+}
+
+.a_post > div,
+.a_post > button,
+.a_post > a {
+  width: 468px;
+}
+
+/* 게시글 작성자 표시 부분*/
+.post_header {
+  width: 100%;
+  height: 32px;
+  padding-bottom: 0 0 12px 4px;
+}
+
+.profile_circle2 {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: none;
+}
+
+.profile_circle2 > img {
+  width: 32px;
+  height: 32px;
+}
+
+.post_image {
+  width: 468px;
+  height: 585px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post_image > img {
+  width: 100%;
+}
+
+.post_buttons {
+  width: 470px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.post_like_btn,
+.post_comment_all {
+  width: 26px;
+  height: 26px;
+  margin: 7px;
+  background-color: transparent;
+  border: none;
+}
+
+.post_like_btn:hover,
+.post_comment_all:hover {
+  opacity: 0.5;
+}
+
+.post_like_btn {
+  background-image: url("/static/posts/images/nolike.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.2s;
+}
+
+.post_comment_all {
+  background-image: url("/static/posts/images/comment.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.liked {
+  background-image: url("/static/posts/images/like.png") !important;
+}

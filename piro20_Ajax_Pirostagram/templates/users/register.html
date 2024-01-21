@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {%block head%}
+<link rel="stylesheet" href="{%static 'users/css/register.css'%}" />{%endblock%}
+{%block content%}
+<div class="main-register">
+  <div>
+    <img class="reg-welcome" src="/static/welcome.jpg" alt="가입환영 이미지" />
+  </div>
+
+  <form
+    method="POST"
+    action="{% url 'users:register'%}"
+    class="signup-block"
+    enctype="multipart/form-data"
+  >
+    <h1>SIGN UP</h1>
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="SignUp" class="register-btn" />
+  </form>
+</div>
+
+{% endblock%}

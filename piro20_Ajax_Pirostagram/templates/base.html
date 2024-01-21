@@ -5,11 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pirostagram</title>
-    {% block head%}{% endblock %}
+    <link rel="stylesheet" href="{%static 'main.css'%}" />
+    <link rel="stylesheet" href="{%static 'reset.css'%}" />
+    <link rel="stylesheet" href="{%static 'posts/css/post_create.css'%}" />
+    {% block head%} {% endblock %}
   </head>
   <body>
-    <aside class="menu"></aside>
-    {% block content%}{% endblock %}
-    <aside class="follower"></aside>
+    <aside class="menu">
+      {% if user.is_authenticated %}
+      <a id="main-logo" href="{% url 'posts:main' %}">Pirostagram</a>
+      <ul>
+        <li><a class="menu-button" href="{% url 'posts:main'%}">홈</a></li>
+        <li>
+          <a class="menu-button" href="{% url 'posts:create'%}">만들기</a>
+        </li>
+        <li>
+          <a class="menu-button" href="{% url 'users:logout'%}">로그아웃</a>
+        </li>
+      </ul>
+      {% else%}
+      <a id="main-logo" href="{% url 'users:login' %}">Pirostagram</a>
+      <ul>
+        <li><a class="menu-button" href="{% url 'users:login'%}">홈</a></li>
+      </ul>
+      {%endif%}
+    </aside>
+    {% block content %} {% endblock %} {% block scripts%}{%endblock%}
   </body>
 </html>

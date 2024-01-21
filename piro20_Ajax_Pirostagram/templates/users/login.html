@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {%block head%}
+<link rel="stylesheet" href="{%static 'users/css/login.css'%}" />{%endblock%}
+{%block content%}
+<main class="if_not_logined">
+  <div class="login-section">
+    <img
+      class="insta-login-logo"
+      src="/static/insta_login_logo.jpg"
+      alt="인스타 로고 이미지"
+    />
+    <section>
+      <h1>Pirostagram</h1>
+      {% if user.is_authenticated %}
+      <a id="main-link-btn" href="{% url 'posts:main' %}">게시글 보러가기</a>
+      {% else%}
+      <div class="login-input">
+        <form
+          method="POST"
+          action="{% url 'users:login'%}"
+          class="signup-block"
+        >
+          {% csrf_token %} {{ form }}<button id="login-btn">로그인</button>
+        </form>
+      </div>
+      <div class="else">
+        <div class="bar"></div>
+        또는
+        <div class="bar"></div>
+      </div>
+      <div class="register-input">
+        계정이 없으신가요?
+        <a class="register_btn" href="{% url 'users:register'%}">회원가입</a>
+      </div>
+      {%endif%}
+    </section>
+  </div>
+</main>
+
+{%endblock%}
