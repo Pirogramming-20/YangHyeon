@@ -1,0 +1,155 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  left: 0px;
+  top: 0.5px;
+}
+.detail-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 3px 3px 5px #888888;
+}
+
+.detail-image-area {
+  width: 700px;
+  height: 1200px;
+  display: flex;
+  align-items: center;
+}
+
+.detail-image-area > img {
+  width: 700px;
+  height: 700px;
+}
+
+/*우측 댓글 란*/
+
+.detail-comment-area {
+  width: 500px;
+  height: 1200px;
+  border-left: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-header {
+  width: 472px;
+  height: 44px;
+  padding: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+
+  border-bottom: 1px solid lightgray;
+}
+
+.detail-header > img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/*댓글 리스트 area*/
+.detail-post-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.post_content {
+  margin: 10px 0;
+}
+
+.detail-comment-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 15px;
+  align-items: flex-start;
+}
+
+.a_comment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.a_comment_profile > img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 14px;
+}
+
+.a_comment_commenter {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.a_comment_delete {
+  position: absolute;
+  right: 5px;
+  top: 17px;
+  border: none;
+  color: #0095f6;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.a_comment_delete:hover {
+  color: #1763cf;
+}
+
+/* 댓글 입력 란*/
+.input-area {
+  width: 494px;
+  height: 50px;
+
+  position: relative;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.comment-input-box {
+  width: 100%;
+  height: 90%;
+  border: none;
+}
+
+.comment-upload-btn {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  border: none;
+  background-color: transparent;
+
+  color: #0095f6;
+  font-size: 16px;
+  font-weight: bold;
+
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.comment-upload-btn:hover {
+  color: #1763cf;
+}

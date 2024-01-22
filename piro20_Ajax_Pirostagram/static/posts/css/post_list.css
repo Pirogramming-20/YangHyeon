@@ -90,6 +90,10 @@ main {
   width: 100%;
   height: 32px;
   padding-bottom: 0 0 12px 4px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .profile_circle2 {

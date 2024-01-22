@@ -1,3 +1,14 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  left: 0px;
+  top: 0.5px;
+}
+
 .post_create {
   width: 855px;
   height: 897px;

@@ -13,9 +13,13 @@ def main(request):
     if request.method == "GET":
         posts = Post.objects.all()
         users = User.objects.all()
+        now_user = request.user
+        for post in posts:
+            print("post = ", post)
         ctx = {
             "posts" : posts,
             "users" : users,
+            "now_user" : now_user,
         }
         return render(request,'posts/list.html', ctx)
 

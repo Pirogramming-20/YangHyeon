@@ -28,15 +28,21 @@
       </div>
 
       <div class="post_buttons">
-        <button class="post_like_btn" onclick="pushLike({{post.id}})"></button>
-        <a class="post_comment_all" href=""></a>
+        <button
+          class="post_like_btn like-{{post.id}}"
+          onclick="pushLike({{post.id}})"
+        ></button>
+        <a
+          class="post_comment_all"
+          href="{% url 'comments:detail' post.pk %}"
+        ></a>
       </div>
       <div class="like post-{{post.id}}">좋아요 {{post.likeNum}} 개</div>
       <div class="post_title">{{ post.title }}</div>
       <div class="post_content">{{ post.content }}</div>
-      <a class="post_comment_all" href="">댓글 모두 보기</a>
-      <div>댓글 영역</div>
-      <div>댓글 달기</div>
+      <a class="post_comment_all" href="{% url 'comments:detail' post.pk %}"
+        >댓글 보기</a
+      >
     </div>
     {% endfor %}
   </div>
@@ -79,6 +85,8 @@
         } else {
           newnum = Number(likenum) - 1;
         }
+
+        const likebutton = document.querySelector(`.like-${post_id}`);
 
         element.innerHTML = `좋아요 ${newnum} 개`;
       }

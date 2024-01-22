@@ -1,3 +1,122 @@
-{% extends 'base.html' %} {% load static %}{% block content%}
-<div>메인 페이지 위치</div>
+{% extends 'base.html' %} {% load static %} {% block head%}<link
+  rel="stylesheet"
+  href="{%static 'comments/css/detail.css'%}"
+/>{% endblock%} {% block content%}
+<section class="detail-section">
+  <div class="detail-image-area">
+    <img src="{{ post.photo.url }}" alt="게시 이미지" />
+  </div>
+  <div class="detail-comment-area">
+    <header class="detail-header">
+      <img src="{{post.user.profile.url}}" /><span>{{post.user.username}}</span>
+    </header>
+    <section class="detail-comment-section">
+      <div class="detail-post-content">
+        <div class="a_comment_profile">
+          <img src="{{post.user.profile.url}}" />
+        </div>
+        <div class="a_comment_commenter">{{post.user.username}}</div>
+      </div>
+      <div class="post_content">{{post.content}}</div>
+      {% if comments %} {% for comment in comments%}
+      <div class="a_comment Cid-{{comment.id}}">
+        <div class="a_comment_profile">
+          <img src="{{comment.commenter.profile.url}}" />
+        </div>
+        <div class="a_comment_commenter">{{comment.commenter.username}}</div>
+        <div class="a_comment_content">{{comment.content}}</div>
+        {% if comment.commenter == now_user%}
+        <button
+          class="a_comment_delete"
+          onclick="deleteComment({{comment.id}})"
+        >
+          삭제
+        </button>
+        {% endif %}
+      </div>
+      {%endfor%} {% endif%}
+    </section>
+
+    {% if user.is_authenticated %}
+    <div class="input-area">
+      <input type="text" class="comment-input-box" /><button
+        class="comment-upload-btn"
+        onclick="writeComment({{post.id}})"
+      >
+        게시
+      </button>
+    </div>
+
+    {%else%}
+    <div class="input-area">
+      <span> 댓글을 작성하려면 로그인을 해주세요!</span>
+    </div>
+    {% endif%}
+  </div>
+</section>
+{% endblock%} {% block scripts %}
+<script>
+  // 댓글 제거 부분
+  const requestCommentDelete = new XMLHttpRequest();
+  function deleteComment(comment_id) {
+    const url = `/detail/delete_comments/${comment_id}/`;
+    requestCommentDelete.open("POST", url, true);
+    requestCommentDelete.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
+    requestCommentDelete.send(JSON.stringify({ comment_id: comment_id }));
+  }
+
+  requestCommentDelete.onreadystatechange = () => {
+    if (requestCommentDelete.readyState === XMLHttpRequest.DONE) {
+      if (requestCommentDelete.status < 400) {
+        const { comment_id } = JSON.parse(requestCommentDelete.response);
+        const element = document.querySelector(`.Cid-${comment_id}`);
+        element.remove();
+      }
+    }
+  };
+
+  // 댓글 추가 부분
+  const requestCommentAdd = new XMLHttpRequest();
+  function writeComment(post_id) {
+    const content = document.querySelector(".comment-input-box");
+
+    const url = `/detail/${post_id}/comments/`;
+    requestCommentAdd.open("POST", url, true);
+    requestCommentAdd.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
+    requestCommentAdd.send(
+      JSON.stringify({ post_id: post_id, content: content.value })
+    );
+    content.value = "";
+  }
+
+  requestCommentAdd.onreadystatechange = () => {
+    if (requestCommentAdd.readyState === XMLHttpRequest.DONE) {
+      if (requestCommentAdd.status < 400) {
+        const { profile_url, commenter, content, commentId } = JSON.parse(
+          requestCommentAdd.response
+        );
+        const element = document.querySelector(".detail-comment-section");
+        let originHTML = element.innerHTML;
+        element.innerHTML += `<div class="a_comment Cid-${commentId}">
+        <div class="a_comment_profile">
+          <img src="${profile_url}" />
+        </div>
+        <div class="a_comment_commenter">${commenter}</div>
+        <div class="a_comment_content">${content}</div>
+        <button
+          class="a_comment_delete"
+          onclick="deleteComment(${commentId})"
+        >
+          삭제
+        </button>`;
+      }
+    }
+  };
+</script>
 {%endblock%}
