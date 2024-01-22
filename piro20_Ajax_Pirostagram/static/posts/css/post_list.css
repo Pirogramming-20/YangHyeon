@@ -4,9 +4,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
-/* 중앙 위쪽 */
+/* follor*/
 .user_list {
   width: 630px;
   height: 85px;
@@ -34,6 +35,26 @@ main {
 }
 
 .profile_circle > img {
+  width: 64px;
+  height: 64px;
+}
+
+.current_user_list {
+  margin-top: 30px;
+  border: 1px solid lightgray;
+  padding: 15px;
+}
+
+/* 중앙 위쪽 */
+.now_profile_circle {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid skyblue;
+}
+
+.now_profile_circle > img {
   width: 64px;
   height: 64px;
 }
@@ -119,6 +140,7 @@ main {
 }
 .post_image > img {
   width: 100%;
+  height: max(100%);
 }
 
 .post_buttons {

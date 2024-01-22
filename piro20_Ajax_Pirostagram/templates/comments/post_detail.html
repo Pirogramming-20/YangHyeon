@@ -9,6 +9,12 @@
   <div class="detail-comment-area">
     <header class="detail-header">
       <img src="{{post.user.profile.url}}" /><span>{{post.user.username}}</span>
+      <a
+        class="post-delete-btn"
+        href="{% url 'posts:delete' post.pk%}"
+        method="post"
+        >삭제하기</a
+      >
     </header>
     <section class="detail-comment-section">
       <div class="detail-post-content">

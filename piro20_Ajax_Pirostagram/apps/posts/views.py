@@ -14,12 +14,15 @@ def main(request):
         posts = Post.objects.all()
         users = User.objects.all()
         now_user = request.user
-        for post in posts:
-            print("post = ", post)
+        likes = Like.objects.filter(writer = now_user)
+        like_post_list = []
+        for like in likes:
+            like_post_list.append(like.post.id)
         ctx = {
             "posts" : posts,
             "users" : users,
             "now_user" : now_user,
+            "like_post_list" : like_post_list,
         }
         return render(request,'posts/list.html', ctx)
 
@@ -44,7 +47,7 @@ def update(request, pk):
 def delete(request, pk):
     if request.method == "POST":
         Post.objects.get(id = pk).delete()
-        return redirect('')
+        return redirect('main/')
 
 
 @csrf_exempt

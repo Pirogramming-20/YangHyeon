@@ -34,9 +34,25 @@ body {
 
   position: fixed;
 }
+
+.menu > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-left: 80px;
+  width: 100%;
+  gap: 10px;
+}
 .menu a {
   text-decoration: none;
   color: var(--black);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+
+  height: 40px;
 }
 
 #main-logo {

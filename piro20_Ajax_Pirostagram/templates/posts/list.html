@@ -7,12 +7,12 @@
 <main>
   <div class="content_list">
     <div class="user_list">
-      {% for user in users %}
-      <div class="a_profile">
-        <div class="profile_circle"><img src="{{user.profile.url}}" /></div>
+      <div class="now_user_profile">
+        <div class="now_profile_circle">
+          <img src="{{now_user.profile.url}}" />
+        </div>
         <span>{{user.username}}</span>
       </div>
-      {% endfor%}
     </div>
     {% for post in posts %}
     <div class="a_post">
@@ -28,10 +28,17 @@
       </div>
 
       <div class="post_buttons">
+        {%if post.id in like_post_list%}
+        <button
+          class="post_like_btn like-{{post.id}} liked"
+          onclick="pushLike({{post.id}})"
+        ></button>
+        {%else%}
         <button
           class="post_like_btn like-{{post.id}}"
           onclick="pushLike({{post.id}})"
         ></button>
+        {% endif %}
         <a
           class="post_comment_all"
           href="{% url 'comments:detail' post.pk %}"
@@ -46,21 +53,27 @@
     </div>
     {% endfor %}
   </div>
-  <aside class="follower"></aside>
+  <aside class="follower">
+    <div class="current_user_list">
+      {% for user in users %}
+      <div class="a_profile Uid-{{user.id}}">
+        <div class="profile_circle"><img src="{{user.profile.url}}" /></div>
+        <span>{{user.username}}</span>
+      </div>
+      {% endfor%}
+    </div>
+  </aside>
 </main>
 
 {% endblock %} {% block scripts %}
 <script>
-  const like_btn = document.querySelector(".post_like_btn");
-  like_btn.addEventListener("click", (e) => {
-    if (e.target.classList.contains("post_like_btn")) {
-      e.target.classList.toggle("liked");
-    }
-  });
+  const user_list = document.querySelector(".user_list");
 
   const requestLike = new XMLHttpRequest();
 
   function pushLike(post_id) {
+    const likebutton = document.querySelector(`.like-${post_id}`);
+    likebutton.classList.toggle("liked");
     const url = "/main/like/";
     requestLike.open("POST", url, true);
     requestLike.setRequestHeader(
@@ -85,8 +98,6 @@
         } else {
           newnum = Number(likenum) - 1;
         }
-
-        const likebutton = document.querySelector(`.like-${post_id}`);
 
         element.innerHTML = `좋아요 ${newnum} 개`;
       }
